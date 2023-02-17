@@ -1,44 +1,26 @@
 <template>
-    <FullNav />
+    <div id="container">
+        <UniHeader />
+        <FullNav />
 
-    <router-view></router-view>
+        <router-view></router-view>
+        <UniFooter />
 
-    <div>
-        <a href="https://vitejs.dev" target="_blank">
-        <img src="/vite.svg" class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://vuejs.org/" target="_blank">
-        <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-        </a>
     </div>
 
-    <HelloWorld msg="Vite + Vue" />
 </template>
 
 <script>
+import UniHeader from "./components/UniHeader.vue";
 import FullNav from "./components/FullNav.vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import UniFooter from "./components/UniFooter.vue";
 
 export default {
     name: "App",
     components: {
+        UniHeader,
         FullNav,
-        HelloWorld
+        UniFooter
     }
 };
 </script>
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
