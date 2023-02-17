@@ -1,89 +1,189 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    margin-top: 0;
+}
+
+#container {
+    width:  100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: ; /* main axis */
+    align-items: ; /* cross axis */
+}
+
+header {
+    width: 90%;
+    margin: 0;
+    padding: 1em 5%;
+    background: #049dd9; /* royal blue */
+    flex: initial; /*flex: 0 1 auto*/
+}
+
+nav {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    flex: initial; /*flex: 0 1 auto*/
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between; /*main axis */
+    align-items: center; /* cross axis */
+}
+
+header .nav-link {
+    color: #000;
+    text-decoration: none;
+}
+
+nav .nav-link {
+    width: 33%;
+    color: #fff;
+    background: #1c4d8c; /* dark indigo */
+    text-decoration: none;
+    text-align: center;
+}
+
+nav .router-link-active {
+    color: #d7ccc8; /* brown 100 */
+}
+
+section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    flex: initial; /*flex: 0 1 auto*/
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between; /*main axis */
+    align-items: flex-start; /* cross axis */
+}
+
+.view-title {
+    width: 90%;
+    margin: 0;
+    padding: 1.5em 5%;
+    flex: initial; /*flex: 0 1 auto*/
+}
+
+.data-point {
+    width: 90%;
+    margin-bottom: 1em;
+    padding: 1em 5%;
+    background: #fafdfd; /* light blue grey */
+    flex: initial; /*flex: 0 1 auto*/
+}
+
+footer {
+    width: 90%;
+    margin: 0;
+    padding: 0 5%;
+    background: #CFD8DC;
+    flex: initial; /*flex: 0 1 auto*/
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.2;
+    font-weight: 600;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+h2, button {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 700;
 }
 
-.card {
-  padding: 2em;
+h3 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.2;
+    font-weight: 700;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+p, label, input, span, li {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.8;
+    font-weight: 400;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.nav-link {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.8;
+    font-weight: 500;
 }
+
+header p {
+    color: #fff;
+}
+
+figcaption {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+@media all and (min-width: 300px) {
+    p, label, input, span, li, figcaption,  .nav-link {
+        font-size: .875em;
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+
+    h2, button {
+        font-size: 1em;
+    }
+
+    h3 {
+        font-size: .9375em;
+    }
+}
+
+@media all and (min-width: 400px) {
+    p, label, input, span, li, figcaption,  .nav-link {
+        font-size: .9375em;
+    }
+
+    h1 {
+        font-size: 1.4em;
+    }
+
+    h2, button {
+        font-size: 1.2em;
+    }
+    
+    h3 {
+        font-size: 1em;
+    }
+}
+
+@media all and (min-width: 600px) {
+    p, label, input, span, li, figcaption,  .nav-link {
+        font-size: 1.2em;
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+
+    h2, button {
+        font-size: 1.2em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+}
+
+/*a {
+    color: #646cff;
+    color: #6D4C41;
+    color: #0D47A1;
+    text-decoration: inherit;
+}
+a:hover {
+    color: #535bf2;
+}*/
+
