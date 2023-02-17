@@ -1,9 +1,9 @@
 <template>
     <nav>
-        <div class="nav-link"><router-link to="/">Overview</router-link></div>
-        <div class="nav-link"><router-link to="/scenes">Scenes</router-link></div>
-        <div class="nav-link"><router-link to="/vics">Victims</router-link></div>
-        <div class="nav-link"><router-link to="/perps">Perps</router-link></div>
+        <!--<router-link class="nav-link" to="/">Overview</router-link>-->
+        <router-link class="nav-link" to="/scenes">Scenes</router-link>
+        <router-link class="nav-link" to="/vics">Victims</router-link>
+        <router-link class="nav-link" to="/perps">Perps</router-link>
     </nav>
 </template>
 
