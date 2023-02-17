@@ -1,10 +1,19 @@
 <template>
-
-    <p>Scenes</p>
-
+    <section>
+        <ViewTitle title="Shooting Scenes"/>
+        <div class="data-point">
+            <ul
+                v-for="scene in scenes"
+                :key="scene.incident_key"
+            >
+                <li>{{ scene.occur_date }}</li>
+            </ul>
+        </div>
+    </section>
 </template>
 
 <script>
+import ViewTitle from "../components/ViewTitle.vue";
 
 export default {
     name: "ShootingScenes",
@@ -29,7 +38,7 @@ export default {
                 .then ((data) => {
                     // Add to scenes array in data (above) AND localStorage.
                     this.scenes = data.scenes;
-                    console.log(data.scenes);
+                    console.log(this.scenes);
                     const scenesString = JSON.stringify(data.scenes);
                     localStorage.setItem("everyScene", scenesString);
                 })
@@ -44,6 +53,8 @@ export default {
         }
     },
     methods: {},
-    components: {}
+    components: {
+        ViewTitle
+    }
 };
 </script>

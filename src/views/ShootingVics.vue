@@ -1,10 +1,19 @@
 <template>
-
-    <p>Victims</p>
-
+    <section>
+        <ViewTitle title="Shooting Victims"/>
+        <div class="data-point">
+            <ul
+                v-for="vic in vics"
+                :key="vic.incident_key"
+            >
+                <li>{{ vic.vic_race }}</li>
+            </ul>
+        </div>
+    </section>
 </template>
 
 <script>
+import ViewTitle from "../components/ViewTitle.vue";
 
 export default {
     name: "ShootingVics",
@@ -44,6 +53,8 @@ export default {
         }
     },
     methods: {},
-    components: {}
+    components: {
+        ViewTitle
+    }
 };
 </script>
