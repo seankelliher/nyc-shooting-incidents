@@ -1,85 +1,172 @@
-function getMurderFlagShared(){
-    this.vics.map((vic) => {
-        if (vic.statistical_murder_flag === "Y") {
-            this.vicsMurderFlag.push(vic.incident_key);
+function getTimeDataShared() {
+    this.incidents.map((incident) => {
+        if (incident.occur_time >= "00:00:00" && incident.occur_time <= "05:59:00") {
+            this.timePeriod1.push(incident.incident_key);
+        } else if (incident.occur_time >= "06:00:00" && incident.occur_time <= "11:59:00") {
+            this.timePeriod2.push(incident.incident_key);
+        } else if (incident.occur_time >= "12:00:00" && incident.occur_time <= "17:59:00") {
+            this.timePeriod3.push(incident.incident_key);
+        } else if (incident.occur_time >= "18:00:00" && incident.occur_time <= "23:59:00") {
+            this.timePeriod4.push(incident.incident_key);
         }
     });
 }
 
-function getAgeDataShared(){
-    this.vics.map((vic) => {
-        const expr = vic.vic_age_group;
+function getBoroDataShared() {
+    this.incidents.map((incident) => {
+        if (incident.boro === "BRONX") {
+            this.boroBronx.push(incident.incident_key);
+        } else if (incident.boro === "BROOKLYN") {
+            this.boroBrooklyn.push(incident.incident_key);
+        } else if (incident.boro === "MANHATTAN") {
+            this.boroManhattan.push(incident.incident_key);
+        } else if (incident.boro === "QUEENS") {
+            this.boroQueens.push(incident.incident_key);
+        } else if (incident.boro === "STATEN ISLAND") {
+            this.boroStaten.push(incident.incident_key);
+        }
+    });
+}
+
+// Inside vs Outside.
+function getDescDataShared() {
+    this.incidents.map((incident) => {
+        if (incident.loc_of_occur_desc === "INSIDE") {
+            this.descInside.push(incident.incident_key);
+        } else if (incident.loc_of_occur_desc === "OUTSIDE") {
+            this.descOutside.push(incident.incident_key);
+        }
+    });
+}
+
+// Location classification, eg - Housing, Playground, Transit.
+function getClassDataShared() {
+    this.incidents.map((incident) => {
+        if (incident.loc_classfctn_desc === "COMMERICAL") {
+            this.classCommercial.push(incident.incident_key);
+        } else if (incident.loc_classfctn_desc === "DWELLING") {
+            this.classDwelling.push(incident.incident_key);
+        } else if (incident.loc_classfctn_desc === "HOUSING") {
+            this.classHousing.push(incident.incident_key);
+        } else if (incident.loc_classfctn_desc === "PARKING LOT") {
+            this.classParkingLot.push(incident.incident_key);
+        } else if (incident.loc_classfctn_desc === "PLAYGROUND") {
+            this.classPlayground.push(incident.incident_key);
+        } else if (incident.loc_classfctn_desc === "STREET") {
+            this.classStreet.push(incident.incident_key);
+        } else if (incident.loc_classfctn_desc === "TRANSIT") {
+            this.classTransit.push(incident.incident_key);
+        } else if (incident.loc_classfctn_desc === "VEHICLE") {
+            this.classVehicle.push(incident.incident_key);
+        } else {
+            this.classOther.push(incident.incident_key);
+        }
+    });
+}
+
+function getMurderFlagShared() {
+    this.incidents.map((incident) => {
+        if (incident.statistical_murder_flag === "Y") {
+            this.incidentsMurderFlag.push(incident.incident_key);
+        }
+    });
+}
+
+function getAgeDataShared(vicsOrPerps) {
+    let expr;
+
+    this.incidents.map((incident) => {
+        if (vicsOrPerps === "victims") {
+            expr = incident.vic_age_group;
+        } else if (vicsOrPerps === "perpetrators") {
+            expr = incident.perp_age_group;
+        }
+        //const expr = incident.vic_age_group;
         switch(expr) {
         case "<18":
-            this.vicsAgeUnder18.push(vic.incident_key);
+            this.ageUnder18.push(incident.incident_key);
             break;
         case "18-24":
-            this.vicsAge18To24.push(vic.incident_key);
+            this.age18To24.push(incident.incident_key);
             break;
         case "25-44":
-            this.vicsAge25To44.push(vic.incident_key);
+            this.age25To44.push(incident.incident_key);
             break;
         case "45-64":
-            this.vicsAge45To64.push(vic.incident_key);
+            this.age45To64.push(incident.incident_key);
             break;
         case "65+":
-            this.vicsAge65Up.push(vic.incident_key);
+            this.age65Up.push(incident.incident_key);
             break;
         default:
-            this.vicsAgeUnknown.push(vic.incident_key);
+            this.ageUnknown.push(incident.incident_key);
         }
     });        
 }
 
-function getSexDataShared(){
-    this.vics.map((vic) => {
-        const expr = vic.vic_sex;
+function getSexDataShared(vicsOrPerps) {
+    let expr;
+
+    this.incidents.map((incident) => {
+        if (vicsOrPerps === "victims") {
+            expr = incident.vic_sex;
+        } else if (vicsOrPerps === "perpetrators") {
+            expr = incident.perp_sex;
+        }
+        //const expr = incident.vic_age_group;
         switch(expr) {
         case "M":
-            this.vicsSexMale.push(vic.incident_key);
+            this.sexMale.push(incident.incident_key);
             break;
         case "F":
-            this.vicsSexFemale.push(vic.incident_key);
+            this.sexFemale.push(incident.incident_key);
             break;
         default:
-            this.vicsSexUnknown.push(vic.incident_key);
+            this.sexUnknown.push(incident.incident_key);
         }
     });        
 }
 
-function getRaceDataShared(){
-    this.vics.map((vic) => {
-        const expr = vic.vic_race;
+function getRaceDataShared(vicsOrPerps) {
+    let expr;
+
+    this.incidents.map((incident) => {
+        if (vicsOrPerps === "victims") {
+            expr = incident.vic_race;
+        } else if (vicsOrPerps === "perpetrators") {
+            expr = incident.perp_race;
+        }
+        //const expr = incident.vic_age_group;
         switch(expr) {
         case "ASIAN / PACIFIC ISLANDER":
-            this.vicsRaceAsian.push(vic.incident_key);
+            this.raceAsian.push(incident.incident_key);
             break;
         case "BLACK":
-            this.vicsRaceBlack.push(vic.incident_key);
+            this.raceBlack.push(incident.incident_key);
             break;
         case "BLACK HISPANIC":
-            this.vicsRaceBlackHisp.push(vic.incident_key);
+            this.raceBlackHisp.push(incident.incident_key);
             break;
         case "WHITE":
-            this.vicsRaceWhite.push(vic.incident_key);
+            this.raceWhite.push(incident.incident_key);
             break;
         case "WHITE HISPANIC":
-            this.vicsRaceWhiteHisp.push(vic.incident_key);
+            this.raceWhiteHisp.push(incident.incident_key);
             break;
         default:
-            this.vicsRaceUnknown.push(vic.incident_key);
+            this.raceUnknown.push(incident.incident_key);
         }
     });        
 }
 
-function getStatShared(arr){
+function getStatShared(arr) {
     const length = arr.length;
     const local = length.toLocaleString();
     return local;
 }
 
-function getPercentShared(arr){
-    const result = ((arr.length / this.vics.length) * 100);
+function getPercentShared(arr) {
+    const result = ((arr.length / this.incidents.length) * 100);
     if (result === 0) {
         return 0;
     } else if (result < 1) {
@@ -90,6 +177,10 @@ function getPercentShared(arr){
 }
 
 export {
+    getTimeDataShared,
+    getBoroDataShared,
+    getDescDataShared,
+    getClassDataShared,
     getMurderFlagShared,
     getAgeDataShared,
     getSexDataShared,
