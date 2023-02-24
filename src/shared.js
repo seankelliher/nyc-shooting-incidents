@@ -14,16 +14,24 @@ function getTimeDataShared() {
 
 function getBoroDataShared() {
     this.incidents.map((incident) => {
-        if (incident.boro === "BRONX") {
+
+        const expr = incident.boro;
+        switch(expr) {
+        case "BRONX":
             this.boroBronx.push(incident.incident_key);
-        } else if (incident.boro === "BROOKLYN") {
+            break;
+        case "BROOKLYN":
             this.boroBrooklyn.push(incident.incident_key);
-        } else if (incident.boro === "MANHATTAN") {
+            break;
+        case "MANHATTAN":
             this.boroManhattan.push(incident.incident_key);
-        } else if (incident.boro === "QUEENS") {
+            break;
+        case "QUEENS":
             this.boroQueens.push(incident.incident_key);
-        } else if (incident.boro === "STATEN ISLAND") {
+            break;
+        case "STATEN ISLAND":
             this.boroStaten.push(incident.incident_key);
+            break;
         }
     });
 }
@@ -42,23 +50,34 @@ function getDescDataShared() {
 // Location classification, eg - Housing, Playground, Transit.
 function getClassDataShared() {
     this.incidents.map((incident) => {
-        if (incident.loc_classfctn_desc === "COMMERICAL") {
+
+        const expr = incident.loc_classfctn_desc;
+        switch(expr) {
+        case "COMMERICAL":
             this.classCommercial.push(incident.incident_key);
-        } else if (incident.loc_classfctn_desc === "DWELLING") {
+            break;
+        case "DWELLING":
             this.classDwelling.push(incident.incident_key);
-        } else if (incident.loc_classfctn_desc === "HOUSING") {
+            break;
+        case "HOUSING":
             this.classHousing.push(incident.incident_key);
-        } else if (incident.loc_classfctn_desc === "PARKING LOT") {
+            break;
+        case "PARKING LOT":
             this.classParkingLot.push(incident.incident_key);
-        } else if (incident.loc_classfctn_desc === "PLAYGROUND") {
+            break;
+        case "PLAYGROUND":
             this.classPlayground.push(incident.incident_key);
-        } else if (incident.loc_classfctn_desc === "STREET") {
+            break;
+        case "STREET":
             this.classStreet.push(incident.incident_key);
-        } else if (incident.loc_classfctn_desc === "TRANSIT") {
+            break;
+        case "TRANSIT":
             this.classTransit.push(incident.incident_key);
-        } else if (incident.loc_classfctn_desc === "VEHICLE") {
+            break;
+        case "VEHICLE":
             this.classVehicle.push(incident.incident_key);
-        } else {
+            break;
+        default:
             this.classOther.push(incident.incident_key);
         }
     });
