@@ -1,7 +1,6 @@
 <template>
     <header>
-        <router-link class="nav-link" to="/"><h1>Shootings Incidents NYC</h1></router-link>
-        <!--<p>Data from the past 12-months in NYC</p>-->
+        <router-link class="nav-link" to="/"><h1>Shooting Incidents in NYC</h1></router-link>
     </header>
 </template>
 
