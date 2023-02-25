@@ -8,7 +8,7 @@
         <ViewTitle title="Shooting Scenes"/>
 
         <div class="data-point">
-            <h3>By Time</h3>
+            <h3>Time</h3>
 
             <table>
                 <tbody>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="data-point">
-            <h3>By Borough</h3>
+            <h3>Borough</h3>
 
             <table>
                 <tbody>
@@ -73,7 +73,7 @@
         </div>
 
         <div class="data-point">
-            <h3>By Inside vs Outside</h3>
+            <h3>Inside vs Outside</h3>
 
             <table>
                 <tbody>
@@ -93,7 +93,7 @@
         </div>
 
         <div class="data-point">
-            <h3>By Classification</h3>
+            <h3>Classification</h3>
 
             <table>
                 <tbody>

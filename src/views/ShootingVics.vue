@@ -8,7 +8,7 @@
         <ViewTitle title="Shooting Victims"/>
 
         <div class="data-point">
-            <h3>By Age</h3>
+            <h3>Age</h3>
 
             <table>
                 <tbody>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="data-point">
-            <h3>By Sex</h3>
+            <h3>Sex</h3>
 
             <table>
                 <tbody>
@@ -73,7 +73,7 @@
         </div>
 
         <div class="data-point">
-            <h3>By Race</h3>
+            <h3>Race</h3>
 
             <table>
                 <tbody>
