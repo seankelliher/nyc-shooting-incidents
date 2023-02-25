@@ -16,15 +16,46 @@ body {
 header {
     width: 90%;
     margin: 0;
-    padding: 1em 5%;
-    background: #049dd9; /* royal blue */
+    padding: 0 5%;
+    background: #03178c; /* purple */
+    border-bottom: 1px solid #fff;
+    position: relative;
     flex: initial; /*flex: 0 1 auto*/
 }
 
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    width: 2000px;
+    left: 100%;
+    background: #03178c; /* purple */
+    border-bottom: 1px solid #fff;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    width: 2000px;
+    right: 100%;
+    background: #03178c; /* purple */
+    border-bottom: 1px solid #fff;
+}
+
+header .nav-link {
+    color: #fff;
+    text-decoration: none;
+}
+
 nav {
-    width: 100%;
+    width: 90%;
     margin: 0;
-    padding: 0;
+    padding: 0 5%;
+    background: #03178c; /* purple */
+    position: relative;
     flex: initial; /*flex: 0 1 auto*/
     display: flex;
     flex-flow: row wrap;
@@ -32,21 +63,33 @@ nav {
     align-items: center; /* cross axis */
 }
 
-header .nav-link {
-    color: #000;
-    text-decoration: none;
+nav::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2000px;
+    left: 100%;
+    background: #03178c; /* purple */
+}
+
+nav::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2000px;
+    right: 100%;
+    background: #03178c; /* purple */
 }
 
 nav .nav-link {
-    width: 33%;
     color: #fff;
-    background: #1c4d8c; /* dark indigo */
     text-decoration: none;
-    text-align: center;
 }
 
 nav .router-link-active {
-    color: #d7ccc8; /* brown 100 */
+    color: #ffccbc; /* deep orange 100 */
 }
 
 section {
@@ -60,76 +103,104 @@ section {
     align-items: flex-start; /* cross axis */
 }
 
+.view-intro {
+    width: 90%;
+    margin: 0;
+    padding: 1em 5%;
+    flex: initial; /*flex: 0 1 auto*/
+}
+
 .view-title {
     width: 90%;
     margin: 0;
-    padding: 1.5em 5%;
+    padding: 0 5%;
     flex: initial; /*flex: 0 1 auto*/
 }
 
 .data-point {
     width: 90%;
-    margin-bottom: 1em;
-    padding: 1em 5%;
-    background: #fafdfd; /* light blue grey */
+    margin-bottom: 1.5em;
+    padding: 0.5em 5%;
+    background: #ECEFF1; /* blue grey 50 */
+    border: 1px solid #bdbdbd; /* grey 400 */
     flex: initial; /*flex: 0 1 auto*/
+}
+
+table {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 1em;
+    border-collapse: collapse;
+}
+
+tr {
+    margin: 0;
+    padding: 0;
+}
+
+td {
+    padding-left: 5%;
+    border: 1px solid #bdbdbd; /* grey 400 */
+}
+
+.group {
+    width: 35%;
+}
+
+.stat {
+    width: 30%;
+}
+
+.percent {
+    width: 20%;
 }
 
 footer {
     width: 90%;
     margin: 0;
     padding: 0 5%;
-    background: #CFD8DC;
+    background: #cfd8dc;
     flex: initial; /*flex: 0 1 auto*/
 }
 
 h1 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.2;
-    font-weight: 600;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
-h2, button {
+h2 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.5;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 h3 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.2;
-    font-weight: 700;
+    font-weight: 500;
 }
 
-p, label, input, span, li {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+p, tr {
+    font-family: Courier, monospace;
     line-height: 1.8;
     font-weight: 400;
 }
 
 .nav-link {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Courier, monospace;
     line-height: 1.8;
-    font-weight: 500;
-}
-
-header p {
-    color: #fff;
-}
-
-figcaption {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.5;
     font-weight: 400;
 }
 
 @media all and (min-width: 300px) {
-    p, label, input, span, li, figcaption,  .nav-link {
+    p, .nav-link, tr {
         font-size: .875em;
     }
 
     h1 {
-        font-size: 1.2em;
+        font-size: .875em;
     }
 
     h2, button {
@@ -142,12 +213,12 @@ figcaption {
 }
 
 @media all and (min-width: 400px) {
-    p, label, input, span, li, figcaption,  .nav-link {
+    p, .nav-link, tr {
         font-size: .9375em;
     }
 
     h1 {
-        font-size: 1.4em;
+        font-size: .9375em;
     }
 
     h2, button {
@@ -160,12 +231,12 @@ figcaption {
 }
 
 @media all and (min-width: 600px) {
-    p, label, input, span, li, figcaption,  .nav-link {
+    p, .nav-link, tr {
         font-size: 1.2em;
     }
 
     h1 {
-        font-size: 1.2em;
+        font-size: 1em;
     }
 
     h2, button {
@@ -176,14 +247,3 @@ figcaption {
         font-size: 1.2em;
     }
 }
-
-/*a {
-    color: #646cff;
-    color: #6D4C41;
-    color: #0D47A1;
-    text-decoration: inherit;
-}
-a:hover {
-    color: #535bf2;
-}*/
-
