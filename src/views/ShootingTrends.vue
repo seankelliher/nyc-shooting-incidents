@@ -80,10 +80,26 @@ export default {
             this.incidents.map((incident) => {
                 this.incidentsOccurDate.push(incident.occur_date);
             });
-            const realDate = new Date(this.incidentsOccurDate[0]);
+
+            // Below ensures first day of the 12-month period is "01"
+            // even if no shooting incidents occur on that day.
+            let fullDate;
+            const dayOfMonth = this.incidentsOccurDate[0].substring(5,7);
+
+            if (dayOfMonth !== "01") {
+                const dateAsArray = this.incidentsOccurDate[0].split("");
+                dateAsArray[5] = "0";
+                dateAsArray[6] = "1";
+                fullDate = dateAsArray.join("");
+            } else {
+                fullDate = this.incidentsOccurDate[0];
+            }
+   
+            // Creates date to display as "Saturday, January 1, 2022".
+            const realDate = new Date(fullDate);
             const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
             return realDate.toLocaleDateString(undefined, options);
-        }, //Check this. If no shooting occurs on first day of time period, date will be off. Add work-around.
+        },
         getMurderFlag: getMurderFlagShared,
         getStat: getStatShared,
         getPercent: getPercentShared
