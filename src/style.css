@@ -3,24 +3,23 @@ body {
 }
 
 #container {
-    width:  100%;
+    width: 100%;
     max-width: 600px;
     margin: 0 auto;
     padding: 0;
     display: flex;
     flex-flow: row wrap;
-    justify-content: ; /* main axis */
-    align-items: ; /* cross axis */
+    justify-content: flex-start; /* main axis */
+    align-items: flex-start; /* cross axis */
 }
 
 header {
     width: 90%;
     margin: 0;
     padding: 0 5%;
-    background: #03178c; /* purple */
-    border-bottom: 1px solid #fff;
+    background: #e8eaf6; /* indigo 50 */
     position: relative;
-    flex: initial; /*flex: 0 1 auto*/
+    flex: initial; /* flex: 0 1 auto */
 }
 
 header::before {
@@ -30,8 +29,7 @@ header::before {
     bottom: -1px;
     width: 2000px;
     left: 100%;
-    background: #03178c; /* purple */
-    border-bottom: 1px solid #fff;
+    background: #e8eaf6; /* indigo 50 */
 }
 
 header::after {
@@ -41,25 +39,19 @@ header::after {
     bottom: -1px;
     width: 2000px;
     right: 100%;
-    background: #03178c; /* purple */
-    border-bottom: 1px solid #fff;
-}
-
-header .nav-link {
-    color: #fff;
-    text-decoration: none;
+    background: #e8eaf6; /* indigo 50 */
 }
 
 nav {
     width: 90%;
     margin: 0;
     padding: 0 5%;
-    background: #03178c; /* purple */
+    background: #4a148c; /* purple 900 */
     position: relative;
-    flex: initial; /*flex: 0 1 auto*/
+    flex: initial; /* flex: 0 1 auto */
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between; /*main axis */
+    justify-content: space-between; /* main axis */
     align-items: center; /* cross axis */
 }
 
@@ -70,7 +62,7 @@ nav::before {
     bottom: 0;
     width: 2000px;
     left: 100%;
-    background: #03178c; /* purple */
+    background: #4a148c; /* purple 900 */
 }
 
 nav::after {
@@ -80,7 +72,13 @@ nav::after {
     bottom: 0;
     width: 2000px;
     right: 100%;
-    background: #03178c; /* purple */
+    background: #4a148c; /* purple 900 */
+}
+
+.nav-link {
+    font-family: Courier, monospace;
+    line-height: 1.8;
+    font-weight: 400;
 }
 
 nav .nav-link {
@@ -89,17 +87,23 @@ nav .nav-link {
 }
 
 nav .router-link-active {
-    color: #ffccbc; /* deep orange 100 */
+    color: #ff8a80; /* red a100 */
+}
+
+header .nav-link {
+    color: #fff;
+    color: #000;
+    text-decoration: none;
 }
 
 section {
     width: 100%;
     margin: 0;
     padding: 0;
-    flex: initial; /*flex: 0 1 auto*/
+    flex: initial; /* flex: 0 1 auto */
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between; /*main axis */
+    justify-content: space-between; /* main axis */
     align-items: flex-start; /* cross axis */
 }
 
@@ -107,23 +111,23 @@ section {
     width: 90%;
     margin: 0;
     padding: 1em 5%;
-    flex: initial; /*flex: 0 1 auto*/
+    flex: initial; /* flex: 0 1 auto */
 }
 
 .view-title {
     width: 90%;
     margin: 0;
     padding: 0 5%;
-    flex: initial; /*flex: 0 1 auto*/
+    flex: initial; /* flex: 0 1 auto */
 }
 
 .data-point {
     width: 90%;
     margin-bottom: 1.5em;
     padding: 0.5em 5%;
-    background: #ECEFF1; /* blue grey 50 */
-    border: 1px solid #bdbdbd; /* grey 400 */
-    flex: initial; /*flex: 0 1 auto*/
+    background: #eceff1; /* blue grey 50 */
+    border: 2px solid #b0bec5; /* blue grey 200 */
+    flex: initial; /* flex: 0 1 auto */
 }
 
 table {
@@ -140,7 +144,7 @@ tr {
 
 td {
     padding-left: 5%;
-    border: 1px solid #bdbdbd; /* grey 400 */
+    border: 2px solid #cfd8dc; /* blue grey 100 */
 }
 
 .group {
@@ -160,7 +164,7 @@ footer {
     margin: 0;
     padding: 0 5%;
     background: #cfd8dc;
-    flex: initial; /*flex: 0 1 auto*/
+    flex: initial; /* flex: 0 1 auto */
 }
 
 h1 {
@@ -182,56 +186,67 @@ h3 {
     font-weight: 500;
 }
 
-p, tr {
+p,
+tr {
     font-family: Courier, monospace;
     line-height: 1.8;
     font-weight: 400;
 }
 
-.nav-link {
-    font-family: Courier, monospace;
-    line-height: 1.8;
-    font-weight: 400;
+.text-link {
+    color: #616161; /* grey 700 */
+    cursor: pointer;
+    display: inline;
+}
+
+.text-link:hover {
+    text-decoration: underline;
 }
 
 @media all and (min-width: 300px) {
-    p, .nav-link, tr {
-        font-size: .875em;
+    p,
+    .nav-link,
+    tr {
+        font-size: 0.875em;
     }
 
     h1 {
-        font-size: .875em;
+        font-size: 0.875em;
     }
 
-    h2, button {
+    h2 {
         font-size: 1em;
     }
 
     h3 {
-        font-size: .9375em;
+        font-size: 0.9375em;
     }
 }
 
 @media all and (min-width: 400px) {
-    p, .nav-link, tr {
-        font-size: .9375em;
+    p,
+    .nav-link,
+    tr {
+        font-size: 0.9375em;
     }
 
     h1 {
-        font-size: .9375em;
+        font-size: 0.9375em;
     }
 
-    h2, button {
+    h2 {
         font-size: 1.2em;
     }
-    
+
     h3 {
         font-size: 1em;
     }
 }
 
 @media all and (min-width: 600px) {
-    p, .nav-link, tr {
+    p,
+    .nav-link,
+    tr {
         font-size: 1.2em;
     }
 
@@ -239,7 +254,7 @@ p, tr {
         font-size: 1em;
     }
 
-    h2, button {
+    h2 {
         font-size: 1.2em;
     }
 
