@@ -8,15 +8,19 @@
         <ViewTitle title="About the Data"/>
 
         <div class="data-point">
-
             <p>Data on shooting incidents in New York City is compiled by the New York City Police Department (NYPD) and made available though NYC Open Data.</p>
+        </div>
 
+        <div class="data-point">
             <p>This data is for a 12-month period beginning on {{ (this.getDateData()) }}.</p>
+        </div>
 
+        <div class="data-point">
             <p>NYPD updates this data quarterly.</p>
+        </div>
 
+        <div class="data-point">
             <p>To maintain consistency across categories, each shooting incident is considered unique. For example, if a perpetrator shoots three people, this is considered three incidents.</p>
-
         </div>
 
     </section>
@@ -57,7 +61,6 @@ export default {
                 .then((data) => {
                     // Add to trends array in data (above) AND localStorage.
                     this.incidents = data.trends;
-                    //console.log(data.trends);
                     const trendsString = JSON.stringify(data.trends);
                     localStorage.setItem("everyTrend", trendsString);
                     this.getDateData();

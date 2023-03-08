@@ -119,14 +119,14 @@
 <script>
 import ViewIntro from "../components/ViewIntro.vue";
 import ViewTitle from "../components/ViewTitle.vue";
-//import foo from "../shared.js";
 import {
     getMurderFlagShared,
     getAgeDataShared,
     getSexDataShared,
     getRaceDataShared,
     getStatShared,
-    getPercentShared
+    getPercentShared,
+    getHighStatShared
 } from "../shared.js";
 
 export default {
@@ -140,10 +140,10 @@ export default {
             age25To44: [],
             age45To64: [],
             age65Up: [],
+            ageUnknown: [],
             sexMale: [],
             sexFemale: [],
             sexUnknown: [],
-            ageUnknown: [],
             raceAsian: [],
             raceBlack: [],
             raceBlackHisp: [],
@@ -168,14 +168,12 @@ export default {
                 .then((data) => {
                     // Add to scenes array in data (above) AND localStorage.
                     this.incidents = data.perps;
-                    //console.log(data.perps);
                     const perpsString = JSON.stringify(data.perps);
                     localStorage.setItem("everyPerp", perpsString);
                     this.getMurderFlag();
                     this.getAgeData("perpetrators");
                     this.getSexData("perpetrators");
                     this.getRaceData("perpetrators");
-
                 })
                 .catch((error) => {
                     console.log(error);
@@ -191,14 +189,17 @@ export default {
             this.getRaceData("perpetrators");
         }
     },
-    /*mount() {
-        getStatShared();
-    },*/
+    mounted() {
+        getHighStatShared(0);
+        getHighStatShared(1);
+        getHighStatShared(2);
+    },
     methods: {
         getMurderFlag: getMurderFlagShared,
         getAgeData: getAgeDataShared,
         getSexData: getSexDataShared,
         getRaceData: getRaceDataShared,
+        getHighStat: getHighStatShared,
         getStat: getStatShared,
         getPercent: getPercentShared
     },

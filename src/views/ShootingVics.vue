@@ -119,14 +119,14 @@
 <script>
 import ViewIntro from "../components/ViewIntro.vue";
 import ViewTitle from "../components/ViewTitle.vue";
-//import foo from "../shared.js";
 import {
     getMurderFlagShared,
     getAgeDataShared,
     getSexDataShared,
     getRaceDataShared,
     getStatShared,
-    getPercentShared
+    getPercentShared,
+    getHighStatShared
 } from "../shared.js";
 
 export default {
@@ -140,10 +140,10 @@ export default {
             age25To44: [],
             age45To64: [],
             age65Up: [],
+            ageUnknown: [],
             sexMale: [],
             sexFemale: [],
             sexUnknown: [],
-            ageUnknown: [],
             raceAsian: [],
             raceBlack: [],
             raceBlackHisp: [],
@@ -168,7 +168,6 @@ export default {
                 .then((data) => {
                     // Add to scenes array in data (above) AND localStorage.
                     this.incidents = data.vics;
-                    //console.log(data.vics);
                     const vicsString = JSON.stringify(data.vics);
                     localStorage.setItem("everyVic", vicsString);
                     this.getMurderFlag();
@@ -191,9 +190,11 @@ export default {
             this.getRaceData("victims");
         }
     },
-    /*mount() {
-        getStatShared();
-    },*/
+    mounted() {
+        getHighStatShared(0);
+        getHighStatShared(1);
+        getHighStatShared(2);
+    },
     methods: {
         getMurderFlag: getMurderFlagShared,
         getAgeData: getAgeDataShared,

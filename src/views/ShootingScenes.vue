@@ -160,7 +160,8 @@ import {
     getClassDataShared,
     getMurderFlagShared,
     getStatShared,
-    getPercentShared
+    getPercentShared,
+    getHighStatShared
 } from "../shared.js";
 
 export default {
@@ -207,7 +208,6 @@ export default {
                 .then ((data) => {
                     // Add to scenes array in data (above) AND localStorage.
                     this.incidents = data.scenes;
-                    //console.log(this.scenes);
                     const scenesString = JSON.stringify(data.scenes);
                     localStorage.setItem("everyScene", scenesString);
                     this.getTimeData();
@@ -230,6 +230,12 @@ export default {
             this.getClassData(); // eg - Housing, Playground, Transit.
             this.getMurderFlag();
         }
+    },
+    mounted() {
+        getHighStatShared(0);
+        getHighStatShared(1);
+        getHighStatShared(2);
+        getHighStatShared(3);
     },
     methods: {
         getTimeData: getTimeDataShared,

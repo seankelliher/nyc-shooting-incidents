@@ -180,7 +180,7 @@ function getRaceDataShared(vicsOrPerps) {
 
 function getStatShared(arr) {
     const length = arr.length;
-    const local = length.toLocaleString();
+    const local = length;
     return local;
 }
 
@@ -195,6 +195,42 @@ function getPercentShared(arr) {
     }
 }
 
+function getHighStatShared(whichTable) {
+
+    const highs = [];
+
+    // Get the table and its "stat" tds.
+    const table = document.querySelectorAll("table")[whichTable];
+    const stats = table.querySelectorAll(".stat");
+    
+    // Create an array of stats.
+    stats.forEach(function (stat) {
+        highs.push(stat.textContent);
+    });
+
+    // Find the highest stat.
+    function compareNumbers(a, b) {
+        return a - b;
+    }
+
+    const result = highs.sort(compareNumbers);
+    const highest = result.reverse()[0];
+
+    // Highlight row with the highest stat.
+    stats.forEach(function (stat) {
+        console.log(stat.textContent);
+        if (stat.textContent === highest) {
+            stat.parentElement.style.backgroundColor = "#cfd8dc";
+        }
+        // Add comma to stats over 999.
+        if (stat.textContent > 999) {
+            const num = Number(stat.textContent);
+            stat.textContent = num.toLocaleString();
+            stat.textContent = stat.textContent.toLocaleString();
+        }
+    });
+}
+
 export {
     getTimeDataShared,
     getBoroDataShared,
@@ -205,5 +241,6 @@ export {
     getSexDataShared,
     getRaceDataShared,
     getStatShared,
-    getPercentShared
+    getPercentShared,
+    getHighStatShared
 };
