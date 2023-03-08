@@ -220,7 +220,7 @@ function getHighStatShared(whichTable) {
     stats.forEach(function (stat) {
         console.log(stat.textContent);
         if (stat.textContent === highest) {
-            stat.parentElement.style.backgroundColor = "#cfd8dc";
+            stat.parentElement.style.color = "#d50000"; // red a700.
         }
         // Add comma to stats over 999.
         if (stat.textContent > 999) {
