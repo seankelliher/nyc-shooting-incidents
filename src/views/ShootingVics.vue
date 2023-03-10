@@ -155,7 +155,8 @@ export default {
     created() {
         // Using locally -> http://localhost:4040/vics
         // Using remotely -> /vics
-        // If localStorage is empty, fetch data.
+        // If localStorage is empty...
+        // (1) fetch data. (2) Sort data. (3) Highlight highs.
         if (!localStorage.getItem("everyVic")) {
             fetch("http://localhost:4040/vics")
                 .then((response) => {
@@ -176,11 +177,18 @@ export default {
                     this.getRaceData("victims");
 
                 })
+                .then(() => {
+                    getHighStatShared(0);
+                    getHighStatShared(1);
+                    getHighStatShared(2);
+                })
                 .catch((error) => {
                     console.log(error);
                 });
         } else {
-            // If localStorage is not empty, get data from there.
+            // If localStorage is NOT empty...
+            // (1) Get data from LS. (2) Sort data.
+            // (3) Highlight highs done in mounted().
             const everyVic = localStorage.getItem("everyVic");
             const everyVicParse = JSON.parse(everyVic);
             this.incidents = everyVicParse;
@@ -191,9 +199,13 @@ export default {
         }
     },
     mounted() {
-        getHighStatShared(0);
-        getHighStatShared(1);
-        getHighStatShared(2);
+        // If localStorage is NOT empty, run functions to highlight highs.
+        const local = (!localStorage.getItem("everyVic"));
+        if (local === false) {
+            getHighStatShared(0);
+            getHighStatShared(1);
+            getHighStatShared(2);
+        }
     },
     methods: {
         getMurderFlag: getMurderFlagShared,

@@ -48,7 +48,8 @@ export default {
     created() {
         // Using locally -> http://localhost:4040/
         // Using remotely -> /
-        // If localStorage is empty, fetch data.
+        // If localStorage is empty...
+        // (1) fetch data. (2) Sort data.
         if (!localStorage.getItem("everyTrend")) {
             fetch("http://localhost:4040/")
                 .then((response) => {
@@ -70,7 +71,8 @@ export default {
                     console.log(error);
                 });
         } else {
-            // If localStorage is not empty, get data from there.
+            // If localStorage is NOT empty...
+            // (1) Get data from LS. (2) Sort data.
             const everyTrend = localStorage.getItem("everyTrend");
             const everyTrendParse = JSON.parse(everyTrend);
             this.incidents = everyTrendParse;

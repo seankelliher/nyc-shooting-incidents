@@ -155,7 +155,8 @@ export default {
     created() {
         // Using locally -> http://localhost:4040/perps
         // Using remotely -> /perps
-        // If localStorage is empty, fetch data.
+        // If localStorage is empty...
+        // (1) fetch data. (2) Sort data. (3) Highlight highs.
         if (!localStorage.getItem("everyPerp")) {
             fetch("http://localhost:4040/perps")
                 .then((response) => {
@@ -175,11 +176,18 @@ export default {
                     this.getSexData("perpetrators");
                     this.getRaceData("perpetrators");
                 })
+                .then(() => {
+                    getHighStatShared(0);
+                    getHighStatShared(1);
+                    getHighStatShared(2); 
+                })
                 .catch((error) => {
                     console.log(error);
                 });
         } else {
-            // If localStorage is not empty, get data from there.
+            // If localStorage is NOT empty...
+            // (1) Get data from LS. (2) Sort data.
+            // (3) Highlight highs done in mounted().
             const everyPerp = localStorage.getItem("everyPerp");
             const everyPerpParse = JSON.parse(everyPerp);
             this.incidents = everyPerpParse;
@@ -190,9 +198,13 @@ export default {
         }
     },
     mounted() {
-        getHighStatShared(0);
-        getHighStatShared(1);
-        getHighStatShared(2);
+        // If localStorage is NOT empty, run functions to highlight highs.
+        const local = (!localStorage.getItem("everyPerp"));
+        if (local === false) {
+            getHighStatShared(0);
+            getHighStatShared(1);
+            getHighStatShared(2);  
+        }
     },
     methods: {
         getMurderFlag: getMurderFlagShared,

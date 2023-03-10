@@ -195,7 +195,8 @@ export default {
     created() {
         // Using locally -> http://localhost:4040/scenes
         // Using remotely -> /scenes
-        // If localStorage is empty, fetch data.
+        // If localStorage is empty...
+        // (1) fetch data. (2) Sort data. (3) Highlight highs.
         if (!localStorage.getItem("everyScene")) {
             fetch("http://localhost:4040/scenes")
                 .then((response) => {
@@ -216,11 +217,19 @@ export default {
                     this.getClassData(); // eg - Housing, Playground, Transit.
                     this.getMurderFlag();
                 })
+                .then(() => {
+                    getHighStatShared(0);
+                    getHighStatShared(1);
+                    getHighStatShared(2);
+                    getHighStatShared(3);
+                })
                 .catch((error) => {
                     console.log(error);
                 });   
         } else {
-            // If localStorage is not empty, get data from there.
+            // If localStorage is NOT empty...
+            // (1) Get data from LS. (2) Sort data.
+            // (3) Highlight highs done in mounted().
             const everyScene = localStorage.getItem("everyScene");
             const everySceneParse = JSON.parse(everyScene);
             this.incidents = everySceneParse;
@@ -232,10 +241,14 @@ export default {
         }
     },
     mounted() {
-        getHighStatShared(0);
-        getHighStatShared(1);
-        getHighStatShared(2);
-        getHighStatShared(3);
+        // If localStorage is NOT empty, run functions to highlight highs.
+        const local = (!localStorage.getItem("everyScene"));
+        if (local === false) {
+            getHighStatShared(0);
+            getHighStatShared(1);
+            getHighStatShared(2);
+            getHighStatShared(3);
+        }
     },
     methods: {
         getTimeData: getTimeDataShared,
