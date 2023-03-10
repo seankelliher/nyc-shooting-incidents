@@ -86,14 +86,17 @@ nav .nav-link {
     text-decoration: none;
 }
 
+header .nav-link {
+    color: #000;
+    text-decoration: none;
+}
+
 nav .router-link-active {
     color: #ff8a80; /* red a100 */
 }
 
-header .nav-link {
-    color: #fff;
+header .router-link-active {
     color: #000;
-    text-decoration: none;
 }
 
 section {
@@ -147,23 +150,38 @@ td {
     border: 2px solid #cfd8dc; /* blue grey 100 */
 }
 
-.group {
-    width: 35%;
+@media all and (min-width: 300px) {
+    .group {
+        width: 45%;
+    }
+
+    .stat {
+        width: 20%;
+    }
+
+    .percent {
+        width: 20%;
+    }
 }
 
-.stat {
-    width: 30%;
-}
+@media all and (min-width: 400px) {
+    .group {
+        width: 40%;
+    }
 
-.percent {
-    width: 20%;
+    .stat {
+        width: 25%;
+    }
+
+    .percent {
+        width: 20%;
+    }
 }
 
 footer {
     width: 90%;
     margin: 0;
     padding: 0 5%;
-    background: #cfd8dc;
     flex: initial; /* flex: 0 1 auto */
 }
 
@@ -193,72 +211,115 @@ tr {
     font-weight: 400;
 }
 
-.text-link {
-    color: #616161; /* grey 700 */
-    cursor: pointer;
-    display: inline;
+p a {
+    color: #4a148c; /* purple 900 */
+    text-decoration: none;
 }
 
-.text-link:hover {
+p a:hover {
     text-decoration: underline;
 }
 
 @media all and (min-width: 300px) {
-    p,
-    .nav-link,
+    .nav-link {
+        font-size: 0.8755em; /* 14px */
+    }
+
+    p {
+        font-size: 0.8755em; /* 14px */
+    }
+
     tr {
-        font-size: 0.875em;
+        font-size: 0.8125em; /* 13px */
     }
 
     h1 {
-        font-size: 0.875em;
+        font-size: 0.9375em; /* 15px */
     }
 
     h2 {
-        font-size: 1em;
+        font-size: 0.9375em; /* 15px */
     }
 
     h3 {
-        font-size: 0.9375em;
+        font-size: 0.8755em; /* 14px */
     }
 }
 
 @media all and (min-width: 400px) {
-    p,
-    .nav-link,
+    .nav-link {
+        font-size: 0.9375em; /* 15px */
+    }
+
+    p {
+        font-size: 0.9375em; /* 15px */
+    }
+
     tr {
-        font-size: 0.9375em;
+        font-size: 0.8755em; /* 14px */
     }
 
     h1 {
-        font-size: 0.9375em;
+        font-size: 1em; /* 16px */
     }
 
     h2 {
-        font-size: 1.2em;
+        font-size: 1em; /* 16px */
     }
 
     h3 {
-        font-size: 1em;
+        font-size: 0.9375em; /* 15px */
+    }
+}
+
+@media all and (min-width: 500px) {
+    .nav-link {
+        font-size: 1em; /* 16px */
+    }
+
+    p {
+        font-size: 1em; /* 16px */
+    }
+
+    tr {
+        font-size: 0.9375em; /* 15px */
+    }
+
+    h1 {
+        font-size: 1.0625em; /* 17px */
+    }
+
+    h2 {
+        font-size: 1.0625em; /* 17px */
+    }
+
+    h3 {
+        font-size: 1em; /* 16px */
     }
 }
 
 @media all and (min-width: 600px) {
-    p,
-    .nav-link,
+    .nav-link {
+        font-size: 1.0625em; /* 17px */
+    }
+
+    p {
+        font-size: 1.0625em; /* 17px */
+    }
+
     tr {
-        font-size: 1.2em;
+        font-size: 1em; /* 16px */
     }
 
     h1 {
-        font-size: 1em;
+        font-size: 1.125em; /* 18 px */
     }
 
     h2 {
-        font-size: 1.2em;
+        font-size: 1.125em; /* 18 px */
     }
 
     h3 {
-        font-size: 1.2em;
+         font-size: 1.0625em; /* 17px */
     }
 }
