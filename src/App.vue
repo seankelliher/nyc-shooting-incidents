@@ -2,11 +2,8 @@
     <div id="container">
         <UniHeader />
         <FullNav />
-
-
         <router-view></router-view>
         <UniFooter />
-
     </div>
 
 </template>
