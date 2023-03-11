@@ -48,6 +48,6 @@ Reflection to come...
 * Police precincts from [NYPD](https://www.nyc.gov/site/nypd/bureaus/patrol/precincts-landing.page).
 * Readme guidance from [Brenna Martenson](https://gist.github.com/martensonbj/6bf2ec2ed55f5be723415ea73c4557c4).
 * Linting guidance from [ESLint](https://eslint.org) and [Stylelint](https://stylelint.io).
-* Design guidance and icons from Google's [Material Design](https://material.io/design).
+* Design guidance from Google's [Material Design](https://material.io/design).
 * Accessibility guidance from [Chrome's](https://www.google.com/chrome/) Lighthouse and [Firefox's](https://www.mozilla.org/en-US/firefox/new/) Accessibility Tools.
 * Shields from [Shields](https://shields.io).
