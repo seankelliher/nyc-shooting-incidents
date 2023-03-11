@@ -60,10 +60,10 @@ app.get(/.*/, function(req, res) {
 // ========================
 // Listen
 // ========================
-/*app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Server listening on port ${process.env.PORT}`);
-});*/
-
-app.listen(4040, () => {
-    console.log("Server listening on port 4040");
 });
+
+/*app.listen(4040, () => {
+    console.log("Server listening on port 4040");
+});*/

@@ -157,7 +157,7 @@ export default {
         // If localStorage is empty...
         // (1) fetch data. (2) Sort data. (3) Highlight highs.
         if (!localStorage.getItem("everyPerp")) {
-            fetch("http://localhost:4040/perps")
+            fetch("/perps")
                 .then((response) => {
                     if (response.ok) {
                         return response.json();

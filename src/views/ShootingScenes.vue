@@ -198,7 +198,7 @@ export default {
         // If localStorage is empty...
         // (1) fetch data. (2) Sort data. (3) Highlight highs.
         if (!localStorage.getItem("everyScene")) {
-            fetch("http://localhost:4040/scenes")
+            fetch("/scenes")
                 .then((response) => {
                     if (response.ok) {
                         return response.json();
