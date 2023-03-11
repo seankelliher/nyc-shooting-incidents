@@ -157,7 +157,7 @@ export default {
         // If localStorage is empty...
         // (1) fetch data. (2) Sort data. (3) Highlight highs.
         if (!localStorage.getItem("everyVic")) {
-            fetch("/vics")
+            fetch("/vic")
                 .then((response) => {
                     if (response.ok) {
                         return response.json();

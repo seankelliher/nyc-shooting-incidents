@@ -50,7 +50,7 @@ export default {
         // If localStorage is empty...
         // (1) fetch data. (2) Sort data.
         if (!localStorage.getItem("everyTrend")) {
-            fetch("/trends")
+            fetch("/trend")
                 .then((response) => {
                     if (response.ok) {
                         return response.json();

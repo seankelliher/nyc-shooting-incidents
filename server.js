@@ -14,7 +14,7 @@ app.use(express.static(__dirname + "/dist/")); // For Heroku deployment.
 // ========================
 //const token = process.env.APP_TOKEN; // In Heroku, "Open Data" token kept here.
 
-app.get("/trends", (req, res) => {
+app.get("/trend", (req, res) => {
     // fetch("https://data.cityofnewyork.us/resource/5ucz-vwe8.json?perp_sex=M&vic_sex=F")
     // fetch("https://data.cityofnewyork.us/resource/5ucz-vwe8.json?$select=boro,perp_sex")
     // fetch("https://data.cityofnewyork.us/resource/5ucz-vwe8.json?$select=boro,occur_date&$where=vic_sex=='F'")
@@ -26,7 +26,7 @@ app.get("/trends", (req, res) => {
         .catch(error => console.error(error));
 });
 
-app.get("/scenes", (req, res) => {
+app.get("/scene", (req, res) => {
     fetch("https://data.cityofnewyork.us/resource/5ucz-vwe8.json?$select=incident_key,occur_time,boro,loc_of_occur_desc,loc_classfctn_desc,statistical_murder_flag&$limit=3000")
         .then(res => res.json())
         .then(data => {
@@ -35,7 +35,7 @@ app.get("/scenes", (req, res) => {
         .catch(error => console.error(error));
 });
 
-app.get("/vics", (req, res) => {
+app.get("/vic", (req, res) => {
     fetch("https://data.cityofnewyork.us/resource/5ucz-vwe8.json?$select=incident_key,statistical_murder_flag,vic_age_group,vic_sex,vic_race&$limit=3000")
         .then(res => res.json())
         .then(data => {
@@ -44,7 +44,7 @@ app.get("/vics", (req, res) => {
         .catch(error => console.error(error));
 });
 
-app.get("/perps", (req, res) => {
+app.get("/perp", (req, res) => {
     fetch("https://data.cityofnewyork.us/resource/5ucz-vwe8.json?$select=incident_key,statistical_murder_flag,perp_age_group,perp_sex,perp_race&$limit=3000")
         .then(res => res.json())
         .then(data => {
