@@ -9,17 +9,14 @@ This project is in development, early stages. There is nothing to see yet.
 
 ## Project Screen Shots
 
-* Starting view - shooting locations
-Screen shots to come...
-<!-- ![screen shot of project](/screenshots/nyc-shooting-incidents-screenshot1.png?s=600) -->
+* Starting view
+![screen shot of project](/screenshots/nyc-shooting-incidents-screenshot1.png?s=600)
 
-* View - demographics of victims
-Screen shots to come...
-<!-- ![screen shot of project](/screenshots/nyc-shooting-incidents-screenshot2.png?s=600) -->
+* View - shooting scenes
+![screen shot of project](/screenshots/nyc-shooting-incidents-screenshot2.png?s=600)
 
-* View - demographics of perpetrators
-Screen shots to come...
-<!-- ![screen shot of project](/screenshots/nyc-shooting-incidents-screenshot3.png?s=600) -->
+* View - shooting victims
+![screen shot of project](/screenshots/nyc-shooting-incidents-screenshot3.png?s=600)
 
 ## Installation and Setup Instructions
 
