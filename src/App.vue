@@ -5,7 +5,6 @@
         <router-view></router-view>
         <UniFooter />
     </div>
-
 </template>
 
 <script>

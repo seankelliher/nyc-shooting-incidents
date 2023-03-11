@@ -5,7 +5,6 @@
 </template>
 
 <script>
-
 export default {
     name: "ViewTitle",
     props: {

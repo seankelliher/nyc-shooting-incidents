@@ -7,14 +7,7 @@
 </template>
 
 <script>
-
 export default {
     name: "ViewIntro"
-    /*props: {
-        title: {
-            type: String,
-            required: true
-        }
-    }*/
 };
 </script>
