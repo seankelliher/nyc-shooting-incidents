@@ -46,7 +46,7 @@ export default {
     },
     created() {
         // Using locally -> http://localhost:4040/
-        // Using remotely -> /
+        // Using remotely -> /trends ("/" does not work)
         // If localStorage is empty...
         // (1) fetch data. (2) Sort data.
         if (!localStorage.getItem("everyTrend")) {
