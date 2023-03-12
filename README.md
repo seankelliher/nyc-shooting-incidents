@@ -3,10 +3,6 @@
 
 Data on shootings in New York City for the past 12-month period. Data is pulled from NYC Open Data. The app is built with Vue.js, Express.js, and Node.js. [View working component](https://nyc-shooting-incidents.herokuapp.com). It's on a Heroku "eco-dyno" and may take a few seconds to "wake up."
 
-## Project Status
-
-This project is in development, early stages. There is nothing to see yet.
-
 ## Project Screen Shots
 
 * Starting view
@@ -40,12 +36,16 @@ Visit the localhost port displayed in the terminal after running `npm run dev`. 
 
 ## Reflection
 
-Reflection to come...
+I wanted to build an app that pulls NYPD data on shooting incidents in New York City, compiles it, and offers "overviews" as to when and where shootings occur and who are the perpetrators and victims. I also wanted the app to highlight the highest data point in each category.
+
+The initial challenge was understanding how the NYPD categorizes shootings. For example, if the shooting is labeled as at a liquor store, was it inside the store or outside it? How are incidents where a single person shoots multiple people, or vice versa, categorized?
+
+Once building, I created the app to initially pull data from the NYC Open Data server, store it in a browser's local storage, and then utilize local storage for future requests. I wanted to reduce calls to the server. The primary technical challenge here was getting the app to function and highlight data in both scenarios. I used a combination of Promises and Vue's Lifecycle Hooks to make this work.
 
 ## Acknowledgments
 
 * Shooting data from [NYC Open Data](https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8).
-* Police precincts from [NYPD](https://www.nyc.gov/site/nypd/bureaus/patrol/precincts-landing.page).
+* API guidance from [SODA Developers](https://dev.socrata.com).
 * Readme guidance from [Brenna Martenson](https://gist.github.com/martensonbj/6bf2ec2ed55f5be723415ea73c4557c4).
 * Linting guidance from [ESLint](https://eslint.org) and [Stylelint](https://stylelint.io).
 * Design guidance from Google's [Material Design](https://material.io/design).
