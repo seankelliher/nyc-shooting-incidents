@@ -66,7 +66,7 @@ app.get("/perp", (req, res) => {
             if (!res.ok) {
                 throw new Error(`${errorMsg} ${res.statusText}.`);
             } else {
-                res.json();
+                return res.json();
             }
         })
         .then(data => {
