@@ -17,7 +17,7 @@ header {
     width: 90%;
     margin: 0;
     padding: 0 5%;
-    background: #e8eaf6; /* indigo 50 */
+    background: #e7f0f6; /* light blue */
     position: relative;
     flex: initial; /* flex: 0 1 auto */
 }
@@ -29,7 +29,7 @@ header::before {
     bottom: -1px;
     width: 2000px;
     left: 100%;
-    background: #e8eaf6; /* indigo 50 */
+    background: #e7f0f6; /* light blue */
 }
 
 header::after {
@@ -39,14 +39,14 @@ header::after {
     bottom: -1px;
     width: 2000px;
     right: 100%;
-    background: #e8eaf6; /* indigo 50 */
+    background: #e7f0f6; /* light blue */
 }
 
 nav {
     width: 90%;
     margin: 0;
     padding: 0 5%;
-    background: #4a148c; /* purple 900 */
+    background: #212121; /* grey 900 */
     position: relative;
     flex: initial; /* flex: 0 1 auto */
     display: flex;
@@ -62,7 +62,7 @@ nav::before {
     bottom: 0;
     width: 2000px;
     left: 100%;
-    background: #4a148c; /* purple 900 */
+    background: #212121; /* grey 900 */
 }
 
 nav::after {
@@ -72,7 +72,7 @@ nav::after {
     bottom: 0;
     width: 2000px;
     right: 100%;
-    background: #4a148c; /* purple 900 */
+    background: #212121; /* grey 900 */
 }
 
 .nav-link {
@@ -92,7 +92,7 @@ header .nav-link {
 }
 
 nav .router-link-active {
-    color: #ff8a80; /* red a100 */
+    font-weight: 600;
 }
 
 header .router-link-active {
@@ -128,7 +128,7 @@ section {
     width: 90%;
     margin-bottom: 1.5em;
     padding: 0.5em 5%;
-    background: #eceff1; /* blue grey 50 */
+    background: #e7f0f6; /* light blue */
     border: 2px solid #b0bec5; /* blue grey 200 */
     flex: initial; /* flex: 0 1 auto */
 }
@@ -188,19 +188,19 @@ footer {
 h1 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.2;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 h2 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.5;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 h3 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.2;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 p,
@@ -211,7 +211,7 @@ tr {
 }
 
 p a {
-    color: #4a148c; /* purple 900 */
+    color: #03588c; /* very dark blue */
     text-decoration: none;
 }
 
