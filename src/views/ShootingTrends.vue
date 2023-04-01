@@ -82,7 +82,8 @@ export default {
         getDateData() {
             // Below ensures first day of the 12-month period is "01".
             // even if no shooting incidents occured on that day.
-            const firstDate = this.incidents[0].occur_date;
+            let firstDate;
+            firstDate = this.incidents[0].occur_date;
             const firstDateDay = firstDate.substring(8,10);
             let firstDayOfTerm;
 
