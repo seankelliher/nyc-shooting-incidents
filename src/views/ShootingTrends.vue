@@ -12,7 +12,7 @@
         </div>
 
         <div class="data-point">
-            <p>This data is for a 12-month period beginning on {{ (this.getDateData()) }}.</p>
+            <p>This data is for a 12-month period beginning on {{ (termStartDate[0]) }}.</p>
         </div>
 
         <div class="data-point">
@@ -40,7 +40,8 @@ export default {
     data() {
         return {
             incidents: [],
-            incidentsMurderFlag: []
+            incidentsMurderFlag: [],
+            termStartDate: []
         };
     },
     created() {
@@ -62,7 +63,7 @@ export default {
                     this.incidents = data.trends;
                     const trendsString = JSON.stringify(data.trends);
                     localStorage.setItem("everyTrend", trendsString);
-                    //this.getDateData();
+                    this.getDateData();
                     this.getMurderFlag();
                 })
                 .catch((error) => {
@@ -74,7 +75,7 @@ export default {
             const everyTrend = localStorage.getItem("everyTrend");
             const everyTrendParse = JSON.parse(everyTrend);
             this.incidents = everyTrendParse;
-            //this.getDateData();
+            this.getDateData();
             this.getMurderFlag();
         }
     },
@@ -98,7 +99,8 @@ export default {
             // Creates date to display as "Saturday, January 1, 2022".
             const dateToDisplay = new Date(firstDayOfTerm);
             const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-            return dateToDisplay.toLocaleDateString(undefined, options);
+            const dateToDisplayFormatted = dateToDisplay.toLocaleDateString(undefined, options);
+            this.termStartDate.push(dateToDisplayFormatted);
         },
         getMurderFlag: getMurderFlagShared,
         getStat: getStatShared,
