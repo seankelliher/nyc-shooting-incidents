@@ -40,13 +40,12 @@ export default {
     data() {
         return {
             incidents: [],
-            incidentsOccurDate: [],
             incidentsMurderFlag: []
         };
     },
     created() {
         // Using locally -> http://localhost:4040/
-        // Using remotely -> /trends ("/" does not work)
+        // Using remotely -> /trend ("/" does not work)
         // If localStorage is empty...
         // (1) fetch data. (2) Sort data.
         if (!localStorage.getItem("everyTrend")) {
@@ -81,28 +80,25 @@ export default {
     },
     methods: {
         getDateData() {
-            this.incidents.map((incident) => {
-                this.incidentsOccurDate.push(incident.occur_date);
-            });
+            // Below ensures first day of the 12-month period is "01".
+            // even if no shooting incidents occured on that day.
+            const firstDate = this.incidents[0].occur_date;
+            const firstDateDay = firstDate.substring(8,10);
+            let firstDayOfTerm;
 
-            // Below ensures first day of the 12-month period is "01"
-            // even if no shooting incidents occur on that day.
-            let fullDate;
-            const dayOfMonth = this.incidentsOccurDate[0].substring(5,7);
-
-            if (dayOfMonth !== "01") {
-                const dateAsArray = this.incidentsOccurDate[0].split("");
-                dateAsArray[5] = "0";
-                dateAsArray[6] = "1";
-                fullDate = dateAsArray.join("");
+            if (firstDateDay !== "01") {
+                const firstDateAsArray = firstDate.split("");
+                firstDateAsArray[8] = "0";
+                firstDateAsArray[9] = "1";
+                firstDayOfTerm = firstDateAsArray.join("");
             } else {
-                fullDate = this.incidentsOccurDate[0];
+                firstDayOfTerm = firstDate;
             }
-   
+
             // Creates date to display as "Saturday, January 1, 2022".
-            const realDate = new Date(fullDate);
+            const dateToDisplay = new Date(firstDayOfTerm);
             const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-            return realDate.toLocaleDateString(undefined, options);
+            return dateToDisplay.toLocaleDateString(undefined, options);
         },
         getMurderFlag: getMurderFlagShared,
         getStat: getStatShared,
