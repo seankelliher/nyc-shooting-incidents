@@ -62,7 +62,7 @@ export default {
                     this.incidents = data.trends;
                     const trendsString = JSON.stringify(data.trends);
                     localStorage.setItem("everyTrend", trendsString);
-                    this.getDateData();
+                    //this.getDateData();
                     this.getMurderFlag();
                 })
                 .catch((error) => {
@@ -74,7 +74,7 @@ export default {
             const everyTrend = localStorage.getItem("everyTrend");
             const everyTrendParse = JSON.parse(everyTrend);
             this.incidents = everyTrendParse;
-            this.getDateData();
+            //this.getDateData();
             this.getMurderFlag();
         }
     },
@@ -82,8 +82,7 @@ export default {
         getDateData() {
             // Below ensures first day of the 12-month period is "01".
             // even if no shooting incidents occured on that day.
-            let firstDate;
-            firstDate = this.incidents[0].occur_date;
+            const firstDate = this.incidents[0].occur_date;
             const firstDateDay = firstDate.substring(8,10);
             let firstDayOfTerm;
 
