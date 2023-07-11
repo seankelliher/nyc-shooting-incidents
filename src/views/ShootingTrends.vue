@@ -2,7 +2,7 @@
     <section>
 
         <ViewIntro>
-             <p>In the past 12 months, {{ (incidents.length.toLocaleString()) }} shooting incidents occured in New York City, with {{ (incidentsMurderFlag.length.toLocaleString()) }} fatalities.</p>
+             <p>In the current calendar year, {{ (incidents.length.toLocaleString()) }} shooting incidents occured in New York City, with {{ (incidentsMurderFlag.length.toLocaleString()) }} fatalities.</p>
         </ViewIntro>
 
         <ViewTitle title="About the Data"/>
@@ -12,11 +12,11 @@
         </div>
 
         <div class="data-point">
-            <p>This data is for a 12-month period beginning on {{ (termStartDate[0]) }}.</p>
+            <p>This data is for the current calendar year beginning on {{ (termStartDate[0]) }}.</p>
         </div>
 
         <div class="data-point">
-            <p>NYPD updates this data quarterly.</p>
+            <p>NYPD updates this data after the end of each quarter.</p>
         </div>
 
         <div class="data-point">
