@@ -2,7 +2,7 @@
     <section>
 
         <ViewIntro>
-             <p>In the past 12 months, {{ (incidents.length.toLocaleString()) }} shooting incidents occured in New York City, with {{ (incidentsMurderFlag.length.toLocaleString()) }} fatalities.</p>
+             <p>In the current calendar year, {{ (incidents.length.toLocaleString()) }} shooting incidents occured in New York City, with {{ (incidentsMurderFlag.length.toLocaleString()) }} fatalities.</p>
         </ViewIntro>
 
         <ViewTitle title="Shooting Scenes"/>
