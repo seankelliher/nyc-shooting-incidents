@@ -55,7 +55,7 @@ export default {
                     if (response.ok) {
                         return response.json();
                     } else {
-                        return Promise.reject(response.status);
+                        return Promise.reject(`Error: ${response.status}, Data currently unavailable. Please try again later.`);
                     }
                 })
                 .then((data) => {
@@ -68,6 +68,7 @@ export default {
                 })
                 .catch((error) => {
                     console.log(error);
+                    alert(error);
                 });
         } else {
             // If localStorage is NOT empty...
