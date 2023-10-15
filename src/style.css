@@ -150,7 +150,7 @@ td {
     border: 2px solid #cfd8dc; /* blue grey 100 */
 }
 
-@media all and (min-width: 300px) {
+@media (min-width: 300px) and (max-width: 399px) {
     .group {
         width: 45%;
     }
@@ -164,7 +164,7 @@ td {
     }
 }
 
-@media all and (min-width: 400px) {
+@media (min-width: 400px) {
     .group {
         width: 40%;
     }
@@ -219,7 +219,7 @@ p a:hover {
     text-decoration: underline;
 }
 
-@media all and (min-width: 300px) {
+@media (min-width: 300px) and (max-width: 399px) {
     .nav-link {
         font-size: 0.8755em; /* 14px */
     }
@@ -245,7 +245,7 @@ p a:hover {
     }
 }
 
-@media all and (min-width: 400px) {
+@media (min-width: 400px) and (max-width: 499px)() {
     .nav-link {
         font-size: 0.9375em; /* 15px */
     }
@@ -271,7 +271,7 @@ p a:hover {
     }
 }
 
-@media all and (min-width: 500px) {
+@media (min-width: 500px) and (max-width: 599px) {
     .nav-link {
         font-size: 1em; /* 16px */
     }
@@ -297,7 +297,7 @@ p a:hover {
     }
 }
 
-@media all and (min-width: 600px) {
+@media (min-width: 600px) {
     .nav-link {
         font-size: 1.0625em; /* 17px */
     }
