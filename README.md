@@ -1,7 +1,7 @@
 [![MIT License on GitHub](https://img.shields.io/github/license/seankelliher/nyc-shooting-incidents?style=flat-square)](/LICENSE.txt)
 ## NYC Shooting Incidents
 
-Data on shootings in New York City for the current calendar year. Data is pulled from NYC Open Data. The app is built with Vue.js, Express.js, and Node.js. [View working component](https://nyc-shooting-incidents.herokuapp.com). It's on a Heroku "eco-dyno" and may take a few seconds to "wake up."
+Shootings in NYC for current calendar year built with Vue.js, Express.js, Node.js, and NYC Open Data. **On Heroku "eco dyno" - takes a few seconds to wake up.** [View working component](https://nyc-shooting-incidents.herokuapp.com). 
 
 ## Project Screen Shots
 
