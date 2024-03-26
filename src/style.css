@@ -1,25 +1,38 @@
+/* Stylesheet uses Level 3 Media Queries. Level 4 coverage still spotty. */
 body {
+    background: #fcfcff;
     margin-top: 0;
+    margin-bottom: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 #container {
     width: 100%;
-    max-width: 600px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0;
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start; /* main axis */
-    align-items: flex-start; /* cross axis */
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 header {
     width: 90%;
     margin: 0;
     padding: 0 5%;
-    background: #e7f0f6; /* light blue */
+    background: #000;
+    flex: initial;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around; /* main axis */
+    align-items: center; /* cross axis */
     position: relative;
-    flex: initial; /* flex: 0 1 auto */
 }
 
 header::before {
@@ -29,7 +42,7 @@ header::before {
     bottom: 0;
     width: 2000px;
     left: 100%;
-    background: #e7f0f6; /* light blue */
+    background: #000;
 }
 
 header::after {
@@ -39,179 +52,263 @@ header::after {
     bottom: 0;
     width: 2000px;
     right: 100%;
-    background: #e7f0f6; /* light blue */
+    background: #000;
 }
 
-nav {
+.items-left {
+    margin: 0;
+    padding: 0;
+    flex: initial;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.items-right {
+    margin: 0;
+    padding: 0;
+    flex: initial;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+@media (min-width: 300px) and (max-width: 539px) {
+    .items-left {
+        width: 100%;
+        justify-content: flex-start; /* main axis */
+        align-items: center; /* cross axis */
+    }
+
+    .items-right {
+        width: 100%;
+        justify-content: flex-start; /* main axis */
+        align-items: center; /* cross axis */
+    }
+}
+
+@media (min-width: 540px) {
+    .items-left {
+        width: 50%;
+        justify-content: flex-start; /* main axis */
+        align-items: center; /* cross axis */
+    }
+
+    .items-right {
+        width: 50%;
+        justify-content: flex-end; /* main axis */
+        align-items: center; /* cross axis */
+    }
+}
+
+figure.logo-header {
+    width: 50px;
+    margin: 0;
+    padding-top: 2px;
+    flex: initial;
+}
+
+.ribbon {
     width: 90%;
     margin: 0;
     padding: 0 5%;
-    background: #212121; /* grey 900 */
-    position: relative;
-    flex: initial; /* flex: 0 1 auto */
+    background: #009ddc;
+    flex: initial;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between; /* main axis */
+    justify-content: flex-start; /* main axis */
     align-items: center; /* cross axis */
+    position: relative;
 }
 
-nav::before {
+.ribbon::before {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
     width: 2000px;
     left: 100%;
-    background: #212121; /* grey 900 */
+    background: #009ddc;
 }
 
-nav::after {
+.ribbon::after {
     content: "";
     position: absolute;
     top: 0;
     bottom: 0;
     width: 2000px;
     right: 100%;
-    background: #212121; /* grey 900 */
+    background: #009ddc;
 }
 
-.nav-link {
-    font-family: Courier, monospace;
-    line-height: 1.8;
-    font-weight: 400;
-}
-
-nav .nav-link {
-    color: #fff;
-    text-decoration: none;
-}
-
-header .nav-link {
-    color: #000;
-    text-decoration: none;
-}
-
-nav .router-link-active {
-    font-weight: 600;
-}
-
-header .router-link-active {
-    color: #000;
-}
-
-section {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    flex: initial; /* flex: 0 1 auto */
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between; /* main axis */
-    align-items: flex-start; /* cross axis */
-}
-
-.view-intro {
-    width: 90%;
-    margin: 0;
-    padding: 1em 5%;
-    flex: initial; /* flex: 0 1 auto */
-}
-
-.view-title {
+main {
     width: 90%;
     margin: 0;
     padding: 0 5%;
-    flex: initial; /* flex: 0 1 auto */
+    flex: initial;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between; /* main axis */
+    align-items: stretch; /* cross axis */
 }
 
-.data-point {
-    width: 90%;
-    margin-bottom: 1.5em;
-    padding: 0.5em 5%;
-    background: #e7f0f6; /* light blue */
-    border: 2px solid #b0bec5; /* blue grey 200 */
-    flex: initial; /* flex: 0 1 auto */
+.heading {
+    width: 95%;
+    margin: 1em 0;
+    padding: 0 2.5%;
+    background: #dde3ea;
+    flex: initial;
 }
 
-table {
-    width: 100%;
-    margin: 0;
-    margin-bottom: 1em;
-    border-collapse: collapse;
+section {
+    /* width: 25%; */
+    margin: 1em 0;
+    padding: 0.5em 2.5%;
+    flex: initial;
 }
 
-tr {
-    margin: 0;
-    padding: 0;
-}
-
-td {
-    padding-left: 5%;
-    border: 2px solid #cfd8dc; /* blue grey 100 */
+.intro {
+    /* width: 60%; */
+    margin: 1em 0;
+    padding: 0.5em 2.5%;
+    border: 2px solid #dde3ea;
+    flex: initial;
 }
 
 @media (min-width: 300px) and (max-width: 399px) {
-    .group {
-        width: 45%;
-    }
-
-    .stat {
-        width: 20%;
-    }
-
-    .percent {
-        width: 20%;
+    section, .intro {
+        width: 95%;
     }
 }
 
-@media (min-width: 400px) {
-    .group {
+@media (min-width: 400px) and (max-width: 499px) {
+    section, .intro {
+        width: 95%;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 799px) {
+    section {
         width: 40%;
     }
 
-    .stat {
+    .intro {
+        width: 95%;
+    }
+}
+
+@media (min-width: 800px) {
+    section {
         width: 25%;
     }
 
-    .percent {
-        width: 20%;
+    .intro {
+        width: 60%;
     }
+
+}
+
+
+
+.gen-border {
+    border: 2px solid #dde3ea;
+}
+
+.loc-border {
+    border: 2px solid #c7e7ff;
+}
+
+.vic-border {
+    border: 2px solid #e5deff;
+}
+
+.perp-border {
+    border: 2px solid #ffdbd0;
 }
 
 footer {
     width: 90%;
+    margin-top: 1em;
+    padding: 2em 5%;
+    background: #000;
+    flex: initial;
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2000px;
+    left: 100%;
+    background: #000;
+}
+
+footer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2000px;
+    right: 100%;
+    background: #000;
+}
+
+@media (min-width: 300px) and (max-width: 499px) {
+    footer {
+        justify-content: flex-start; /* main axis */
+        align-items: center; /* cross axis */
+    }
+}
+
+@media (min-width: 500px) {
+    footer {
+        justify-content: space-between; /* main axis */
+        align-items: center; /* cross axis */
+    }
+}
+
+figure.logo-footer {
     margin: 0;
-    padding: 0 5%;
-    flex: initial; /* flex: 0 1 auto */
+    padding: 0;
 }
 
-h1 {
+@media (min-width: 300px) and (max-width: 399px) {
+    figure.logo-footer {
+        width: 25%;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 499px) {
+    figure.logo-footer {
+        width: 20%
+    }
+}
+
+@media (min-width: 500px) and (max-width: 599px) {
+    figure.logo-footer {
+        width: 15%;
+    }
+}
+
+@media (min-width: 600px) {
+    figure.logo-footer {
+        width: 10%;
+    }
+}
+
+/* Font styles and their media queries */
+p {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.2;
-    font-weight: 600;
-}
-
-h2 {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 600;
-}
-
-h3 {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.2;
-    font-weight: 600;
-}
-
-p,
-tr {
-    font-family: Courier, monospace;
-    line-height: 1.8;
+    line-height: 1.6;
     font-weight: 400;
+    margin-top: 0;
+    color: #191c1e;
 }
 
 p a {
-    color: #03588c; /* very dark blue */
+    color: #009ddc;
     text-decoration: none;
 }
 
@@ -219,106 +316,186 @@ p a:hover {
     text-decoration: underline;
 }
 
-@media (min-width: 300px) and (max-width: 399px) {
-    .nav-link {
-        font-size: 0.8755em; /* 14px */
-    }
+h1  {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 600;
+    color: #fff;
+}
 
-    p {
-        font-size: 0.8755em; /* 14px */
-    }
+h1 a {
+    color: #fff;
+    text-decoration: none;
+}
 
-    tr {
-        font-size: 0.8125em; /* 13px */
-    }
+.pipe {
+    margin: 0 0.5em;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 600;
+    color: #fff;
+}
 
-    h1 {
-        font-size: 0.9375em; /* 15px */
-    }
+.header-text {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #fff;
+}
 
-    h2 {
-        font-size: 0.9375em; /* 15px */
-    }
+.header-text a {
+    color: #fff;
+    text-decoration: none;
+}
 
-    h3 {
-        font-size: 0.8755em; /* 14px */
+h2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 600;
+    color: #fff;
+}
+
+h3 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #191c1e;
+    color: #41484d;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+@media (min-width: 300px) and (max-width: 499px) {
+    ul {
+        width: 100%;
+        margin: 0 0 1em; /* longhand 0 0 1em 0 */
     }
 }
 
-@media (min-width: 400px) and (max-width: 499px)() {
-    .nav-link {
-        font-size: 0.9375em; /* 15px */
+@media (min-width: 500px) {
+    ul {
+        width: 80%;
+        margin: 0;
+    }
+}
+
+li {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    font-weight: 500;
+    color: #fff;
+}
+
+
+dl {
+    margin: 0;
+    padding: 0;
+}
+
+
+dt {
+    margin-left: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    font-weight: 600;
+    color: #191c1e;
+}
+
+dd {
+    margin-left: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #191c1e;
+    border-bottom: 1px solid #dde3ea;
+    flex: initial;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between; /* main axis */
+    align-items: flex-start; /* cross axis */
+}
+
+dd:last-child {
+    border-bottom: none;
+}
+
+
+/* Media queries for fonts */
+@media (min-width: 300px) and (max-width: 399px) {
+    p, li, dt, dd  {
+        font-size: 0.8125em; /* 13px */
     }
 
-    p {
-        font-size: 0.9375em; /* 15px */
-    }
-
-    tr {
-        font-size: 0.8755em; /* 14px */
-    }
-
-    h1 {
-        font-size: 1em; /* 16px */
+    h1, .pipe, .header-text {
+        font-size: 0.75em; /* 12px */
     }
 
     h2 {
-        font-size: 1em; /* 16px */
+        font-size: 1.1875em; /* 19px */
     }
 
     h3 {
+        font-size: 1.0625em; /* 17px */
+    }
+}
+
+@media (min-width: 400px) and (max-width: 499px) {
+    p, li, dt, dd  {
         font-size: 0.9375em; /* 15px */
+    }
+
+    h1, .pipe, .header-text {
+        font-size: 0.8125em; /* 13px */
+    }
+
+    h2 {
+        font-size: 1.25em; /* 20px */
+    }
+
+    h3 {
+        font-size: 1.125em; /* 18 px */
     }
 }
 
 @media (min-width: 500px) and (max-width: 599px) {
-    .nav-link {
-        font-size: 1em; /* 16px */
-    }
-
-    p {
-        font-size: 1em; /* 16px */
-    }
-
-    tr {
-        font-size: 0.9375em; /* 15px */
-    }
-
-    h1 {
+    p, li, dt, dd  {
         font-size: 1.0625em; /* 17px */
+    }
+
+    h1, .pipe, .header-text {
+        font-size: 0.875em; /* 14px */
     }
 
     h2 {
-        font-size: 1.0625em; /* 17px */
+        font-size: 1.3125em; /* 21px */
     }
 
     h3 {
-        font-size: 1em; /* 16px */
+        font-size: 1.1875em; /* 19px */
     }
 }
 
 @media (min-width: 600px) {
-    .nav-link {
-        font-size: 1.0625em; /* 17px */
+    p, li, dt, dd  {
+        font-size: 1.1875em; /* 19px */
     }
 
-    p {
-        font-size: 1.0625em; /* 17px */
-    }
-
-    tr {
-        font-size: 1em; /* 16px */
-    }
-
-    h1 {
-        font-size: 1.125em; /* 18 px */
+    h1, .pipe, .header-text {
+        font-size: 0.9375em; /* 15px */
     }
 
     h2 {
-        font-size: 1.125em; /* 18 px */
+        font-size: 1.375em; /* 22px */
     }
 
     h3 {
-        font-size: 1.0625em; /* 17px */
+        font-size: 1.25em; /* 20px */
     }
+
 }

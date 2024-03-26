@@ -1,30 +1,56 @@
 // ========================
-// Packages
+// Packages - using  ES Modules
 // ========================
-const express = require("express");
+
+// Import the express module. It's a function.
+import express from "express";
+
+// Run the Express function.
 const app = express();
+
+// Since we are using node with ES Modules, we need to import:
+// "path" - node module for working with files & directories.
+// "fileURLToPath" - node module that splits web address into readable parts.
+// "process" - node global object gives info & control of current node process.
+import path from "path";
+import { fileURLToPath } from "url"; 
+import process from "process";
+
+// We need to create the __filename & __dirname global objects, native to node.
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // ========================
 // Middlewares
 // ========================
-app.use(express.static(__dirname + "/dist/")); // For Heroku deployment.
+
+// Single page app fix.
+// Solves problem where browser cannot find static pages
+// after build because app is really one page and routes are mocked.
+// Using Express' built-in middleware function static(),
+// we tell Express to serve static files from the "dist" directory.
+app.use(express.static(__dirname + "/dist/"));
 
 // ========================
 // Routes
 // ========================
-const token = process.env.APP_TOKEN; // In Heroku, "Open Data" token kept here.
 
-app.get("/trend", (req, res) => {
-    fetch(`https://data.cityofnewyork.us/resource/5ucz-vwe8.json?$$app_token=${token}&$select=incident_key,occur_date,statistical_murder_flag&$order=occur_date ASC&$limit=3000`)
+// Access token, using environmental variables.
+const token = process.env.TOKEN_NAME;
+
+// Example route with error handling.
+app.get("/shooting-incidents", (req, res) => {
+    fetch(`https://data.cityofnewyork.us/resource/5ucz-vwe8.json?$$app_token=${token}`)
         .then(res => {
             if (!res.ok) {
                 throw new Error(res.status);
+
             } else {
                 return res.json();
             }
         })
         .then((data) => {
-            res.send({ trends: data });
+            res.send(data);
         })
         .catch((error) => {
             console.log(error);
@@ -33,74 +59,23 @@ app.get("/trend", (req, res) => {
         });
 });
 
-app.get("/scene", (req, res) => {
-    fetch(`https://data.cityofnewyork.us/resource/5ucz-vwe8.json?$$app_token=${token}&$select=incident_key,occur_time,boro,loc_of_occur_desc,loc_classfctn_desc,statistical_murder_flag&$limit=3000`)
-        .then(res => {
-            if (!res.ok) {
-                throw new Error(res.status);
-            } else {
-                return res.json();
-            }
-        })
-        .then((data) => {
-            res.send({ scenes: data });
-        })
-        .catch((error) => {
-            console.log(error);
-            const reason = Number(error.message);
-            res.sendStatus(reason);
-        });
-});
-
-app.get("/vic", (req, res) => {
-    fetch(`https://data.cityofnewyork.us/resource/5ucz-vwe8.json?$$app_token=${token}&$select=incident_key,statistical_murder_flag,vic_age_group,vic_sex,vic_race&$limit=3000`)
-        .then(res => {
-            if (!res.ok) {
-                throw new Error(res.status);
-            } else {
-                return res.json();
-            }
-        })
-        .then((data) => {
-            res.send({ vics: data });
-        })
-        .catch((error) => {
-            console.log(error);
-            const reason = Number(error.message);
-            res.sendStatus(reason);
-        });
-});
-
-app.get("/perp", (req, res) => {
-    fetch(`https://data.cityofnewyork.us/resource/5ucz-vwe8.json?$$app_token=${token}&$select=incident_key,statistical_murder_flag,perp_age_group,perp_sex,perp_race&$limit=3000`)
-        .then(res => {
-            if (!res.ok) {
-                throw new Error(res.status);
-            } else {
-                return res.json();
-            }
-        })
-        .then((data) => {
-            res.send({ perps: data });
-        })
-        .catch((error) => {
-            console.log(error);
-            const reason = Number(error.message);
-            res.sendStatus(reason);
-        });
-});
-
-app.get(/.*/, function(req, res) {
+// If none of the above routes' match component's request, it gets handled here.
+// We tell Express to send any route request to the app's index.html file.
+// Essentially, we deliver the request to Vue and let Vue handle routing.
+app.get(/.*/, function (req, res) {
     res.sendFile(__dirname + "/dist/index.html");
 });
 
 // ========================
 // Listen
 // ========================
+
+// Remote environment.
 app.listen(process.env.PORT, () => {
     console.log(`Server listening on port ${process.env.PORT}`);
 });
 
-/*app.listen(4040, () => {
+// Local environment.
+/* app.listen(4040, () => {
     console.log("Server listening on port 4040");
-});*/
+}); */
