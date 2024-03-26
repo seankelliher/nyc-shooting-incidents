@@ -376,10 +376,10 @@ function getLocation() {
         <section class="loc-border">
             <dl>
                 <dt>Time of Day</dt>
-                <dd><span>Early morning</span> <span>{{ earlyMorning.length }}</span></dd>
-                <dd><span>Morning</span> <span>{{ morning.length }}</span></dd>
-                <dd><span>Afternoon</span> <span>{{ afternoon.length }}</span></dd>
-                <dd><span>Evening</span> <span>{{ evening.length }}</span></dd>
+                <dd><span>12am - 5:59am</span> <span>{{ earlyMorning.length }}</span></dd>
+                <dd><span>6am - 11:59am</span> <span>{{ morning.length }}</span></dd>
+                <dd><span>12pm - 5:59pm</span> <span>{{ afternoon.length }}</span></dd>
+                <dd><span>6pm - 11:59pm</span> <span>{{ evening.length }}</span></dd>
             </dl>
         </section>
 
