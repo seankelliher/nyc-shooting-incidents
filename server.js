@@ -36,7 +36,7 @@ app.use(express.static(__dirname + "/dist/"));
 // ========================
 
 // Access token, using environmental variables.
-const token = process.env.TOKEN_NAME;
+const token = process.env.APP_TOKEN; // In Heroku, "Open Data" token kept here.
 
 // Example route with error handling.
 app.get("/shooting-incidents", (req, res) => {
