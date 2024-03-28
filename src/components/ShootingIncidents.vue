@@ -140,7 +140,6 @@ function getDates() {
     const lengthMinus = dates.value.length - 1;
     firstDate.value = dates.value[0];
     lastDate.value = dates.value[`${lengthMinus}`];
-
 }
 
 function getTimeOfDay() {
@@ -415,7 +414,7 @@ function getLocation() {
 
         <section class="vic-border">
             <dl>
-                <dt>Victim, Gender</dt>
+                <dt>Gender</dt>
                 <dd><span>Male</span> <span>{{ maleVic.length }}</span></dd>
                 <dd><span>Female</span> <span>{{ femaleVic.length }}</span></dd>
                 <dd><span>na</span> <span>{{ genderUnknownVic.length }}</span></dd>
@@ -424,7 +423,7 @@ function getLocation() {
 
         <section class="vic-border">
             <dl>
-                <dt>Victim, Age</dt>
+                <dt>Age</dt>
                 <dd><span>under 18</span> <span>{{ ageUnder18Vic.length }}</span></dd>
                 <dd><span>18 - 24</span> <span>{{ age18To24Vic.length }}</span></dd>
                 <dd><span>25 - 44</span> <span>{{ age25To44Vic.length }}</span></dd>
@@ -436,7 +435,7 @@ function getLocation() {
 
         <section class="vic-border">
             <dl>
-                <dt>Victim, Race</dt>
+                <dt>Race</dt>
                 <dd><span>Asian</span> <span>{{ asianVic.length }}</span></dd>
                 <dd><span>Black</span> <span>{{ blackVic.length }}</span></dd>
                 <dd><span>Black Hispanic</span> <span>{{ blackHispVic.length }}</span></dd>
@@ -452,7 +451,7 @@ function getLocation() {
 
         <section class="perp-border">
             <dl>
-                <dt>Perp, Gender</dt>
+                <dt>Gender</dt>
                 <dd><span>Male</span> <span>{{ malePerp.length }}</span></dd>
                 <dd><span>Female</span> <span>{{ femalePerp.length }}</span></dd>
                 <dd><span>na</span> <span>{{ genderUnknownPerp.length }}</span></dd>
@@ -461,7 +460,7 @@ function getLocation() {
 
         <section class="perp-border">
             <dl>
-                <dt>Perp, Age</dt>
+                <dt>Age</dt>
                 <dd><span>under 18</span> <span>{{ ageUnder18Perp.length }}</span></dd>
                 <dd><span>18 - 24</span> <span>{{ age18To24Perp.length }}</span></dd>
                 <dd><span>25 - 44</span> <span>{{ age25To44Perp.length }}</span></dd>
@@ -473,7 +472,7 @@ function getLocation() {
 
         <section class="perp-border">
             <dl>
-                <dt>Perp, Race</dt>
+                <dt>Race</dt>
                 <dd><span>Asian</span> <span>{{ asianPerp.length }}</span></dd>
                 <dd><span>Black</span> <span>{{ blackPerp.length }}</span></dd>
                 <dd><span>Black Hispanic</span> <span>{{ blackHispPerp.length }}</span></dd>
