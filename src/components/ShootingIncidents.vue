@@ -9,8 +9,8 @@ const murders = ref([]);
 
 // Dates
 const dates = ref([]);
-const firstDate = ref("");
-const lastDate = ref("");
+const openDate = ref("");
+const closeDate = ref("");
 
 // Time of Day
 const earlyMorning = ref([]);
@@ -132,14 +132,31 @@ function getTotals() {
     });
 }
 
+// Sets the open/close dates in the "intro" box.
 function getDates() {
     incidents.value.map((incident) => {
         dates.value.push(incident.occur_date);
     });
     dates.value.sort();
     const lengthMinus = dates.value.length - 1;
-    firstDate.value = dates.value[0];
-    lastDate.value = dates.value[`${lengthMinus}`];
+
+    const openDateMonth = dates.value[0].substring(5,7);
+    const openDateYear = dates.value[0].substring(0,4);
+    const closeDateMonth = dates.value[`${lengthMinus}`].substring(5,7);
+    const closeDateYear = dates.value[`${lengthMinus}`].substring(0,4);
+
+    let closeDateDay;
+
+    // Quarters end Mar 31, Jun 30, Sep 30, or Dec 31.
+    if (closeDateMonth === "03" || closeDateMonth === "12") {
+        closeDateDay = "31";
+    } else if (closeDateMonth === "06" || closeDateMonth === "09") {
+        closeDateDay = "30";
+    }
+
+    // Set the 12 month period, open and close.
+    openDate.value = `${openDateMonth}/01/${openDateYear}`;
+    closeDate.value = `${closeDateMonth}/${closeDateDay}/${closeDateYear}`;
 }
 
 function getTimeOfDay() {
@@ -365,7 +382,7 @@ function getLocation() {
         </section>
 
         <div class="intro">
-            <p>Data compiled by NYPD and available though <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8/about_data" target="_blank">NYC Open Data</a>. Data is for the past 12 months, {{ firstDate.substring(0,10) }} - {{ lastDate.substring(0,10) }}, updated at the end of each quarter. Shooting incidents are considered unique. For example, if a perpetrator shoots three people, this is considered three incidents.</p>
+            <p>Data compiled by NYPD and available at <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8/about_data" target="_blank">NYC Open Data</a>. Data is for the past 12 months, {{ openDate }} - {{ closeDate }}, updated at the end of each quarter. Shooting incidents are considered unique. For example, if a perpetrator shoots three people, it is considered three incidents.</p>
         </div>
 
         <div class="heading">
