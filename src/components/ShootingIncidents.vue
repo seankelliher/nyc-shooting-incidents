@@ -72,9 +72,13 @@ const transit = ref([]);
 const vehicle = ref([]);
 const otherLocation = ref([]);
 
+// Error
+const errorMsg = ref("");
+
 // Using locally -> http://localhost:4040/shooting-incidents
 // Using remotely -> /shooting-incidents
 onMounted(() => {
+    errorMsg.value = "";
     if (!localStorage.getItem("nycShootings")) {
         console.log("data being fetched from NYC Open Data");
 
@@ -83,7 +87,7 @@ onMounted(() => {
                 if (response.ok) {
                     return response.json();
                 } else {
-                    return Promise.reject(`Error: ${response.status}, Data currently unavailable. Please try again later.`);
+                    return Promise.reject(`Error: ${response.status}, Please wait a few seconds and try refreshing your browser.`);
                 }
             })
             .then((data) => {
@@ -103,6 +107,7 @@ onMounted(() => {
             })
             .catch((error) => {
                 console.log(error);
+                errorMsg.value = error;
             });
     } else {
         const local = localStorage.getItem("nycShootings");
@@ -373,6 +378,10 @@ function getLocation() {
 
 <template>
     <main>
+        <div v-if="errorMsg" class="heading-error">
+            <p class="error-msg">{{ errorMsg }}</p>
+        </div>
+
         <section class="gen-border">
             <dl>
                 <dt>Totals</dt>
