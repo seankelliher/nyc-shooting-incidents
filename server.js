@@ -53,8 +53,7 @@ app.get("/shooting-incidents", (req, res) => {
             res.send(data);
         })
         .catch((error) => {
-            console.log(error);
-            const reason = Number(error.message);
+            const reason = error.message;
             res.sendStatus(reason);
         });
 });
