@@ -6,7 +6,7 @@
         <ul>
             <li>Eric L. Adams, Mayor</li>
             <li>Edward A. Caban, Commissioner NYPD</li>
-            <li>Matthew C. Fraser, Chief Technology Officer (CTO)</li>
+            <li>Matthew C. Fraser, Chief Technology Officer</li>
         </ul>
 
         <figure class="logo-footer">
