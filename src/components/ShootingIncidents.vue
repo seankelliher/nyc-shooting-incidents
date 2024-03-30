@@ -79,7 +79,7 @@ const errorMsg = ref("");
 // Using remotely -> /shooting-incidents
 onMounted(() => {
     errorMsg.value = "";
-    if (!localStorage.getItem("nycShootings")) {
+    if (!sessionStorage.getItem("nycShootings")) {
         console.log("data being fetched from NYC Open Data");
 
         fetch("/shooting-incidents")
@@ -103,14 +103,14 @@ onMounted(() => {
                 getRace("vic");
                 getRace("perp");
                 getLocation();
-                localStorage.setItem("nycShootings", JSON.stringify(incidents.value));
+                sessionStorage.setItem("nycShootings", JSON.stringify(incidents.value));
             })
             .catch((error) => {
                 console.log(error);
                 errorMsg.value = error;
             });
     } else {
-        const local = localStorage.getItem("nycShootings");
+        const local = sessionStorage.getItem("nycShootings");
         const localParsed = JSON.parse(local);
         incidents.value = localParsed;
         console.log("local storage data is being used.");
