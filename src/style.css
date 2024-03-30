@@ -108,7 +108,7 @@ figure.logo-header {
 
 .ribbon {
     width: 90%;
-    margin: 0;
+    margin: 0 0 1em; /* longhand  0 0 1em 0 */
     padding: 0 5%;
     background: #009ddc;
     flex: initial;
@@ -158,15 +158,21 @@ main {
     flex: initial;
 }
 
+.heading-error {
+    width: 95%;
+    margin: 1em 0;
+    padding: 0 2.5%;
+    background: #ffdad6;
+    flex: initial;
+}
+
 section {
-    /* width: 25%; */
     margin: 1em 0;
     padding: 0.5em 2.5%;
     flex: initial;
 }
 
 .intro {
-    /* width: 60%; */
     margin: 1em 0;
     padding: 0.5em 2.5%;
     border: 2px solid #dde3ea;
@@ -203,10 +209,7 @@ section {
     .intro {
         width: 60%;
     }
-
 }
-
-
 
 .gen-border {
     border: 2px solid #dde3ea;
@@ -299,56 +302,11 @@ figure.logo-footer {
 }
 
 /* Font styles and their media queries */
-p {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    font-weight: 400;
-    margin-top: 0;
-    color: #191c1e;
-}
-
-p a {
-    color: #009ddc;
-    text-decoration: none;
-}
-
-p a:hover {
-    text-decoration: underline;
-}
-
 h1  {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 600;
     color: #fff;
-}
-
-h1 a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.pipe {
-    margin: 0 0.5em;
-    padding: 0;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 600;
-    color: #fff;
-}
-
-.header-text {
-    margin: 0;
-    padding: 0;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 500;
-    color: #fff;
-}
-
-.header-text a {
-    color: #fff;
-    text-decoration: none;
 }
 
 h2 {
@@ -362,8 +320,56 @@ h3 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.2;
     font-weight: 600;
-    color: #191c1e;
     color: #41484d;
+}
+
+p {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #191c1e;
+}
+
+.header-text {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #fff;
+}
+
+/* Used for <p class="error-msg"> */
+.error-msg {
+    color: #ba1a1a;
+}
+
+.pipe {
+    margin: 0 0.5em;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 600;
+    color: #fff;
+}
+
+h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+p a {
+    color: #009ddc;
+    text-decoration: none;
+}
+
+.header-text a {
+    color: #fff;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
 }
 
 ul {
@@ -392,12 +398,10 @@ li {
     color: #fff;
 }
 
-
 dl {
     margin: 0;
     padding: 0;
 }
-
 
 dt {
     margin-left: 0;
@@ -425,14 +429,13 @@ dd:last-child {
     border-bottom: none;
 }
 
-
 /* Media queries for fonts */
 @media (min-width: 300px) and (max-width: 399px) {
     p, li, dt, dd  {
         font-size: 0.8125em; /* 13px */
     }
 
-    h1, .pipe, .header-text {
+    h1, .header-text, .pipe {
         font-size: 0.75em; /* 12px */
     }
 
@@ -450,7 +453,7 @@ dd:last-child {
         font-size: 0.9375em; /* 15px */
     }
 
-    h1, .pipe, .header-text {
+    h1, .header-text, .pipe {
         font-size: 0.8125em; /* 13px */
     }
 
@@ -468,7 +471,7 @@ dd:last-child {
         font-size: 1.0625em; /* 17px */
     }
 
-    h1, .pipe, .header-text {
+    h1, .header-text, .pipe {
         font-size: 0.875em; /* 14px */
     }
 
@@ -486,7 +489,7 @@ dd:last-child {
         font-size: 1.1875em; /* 19px */
     }
 
-    h1, .pipe, .header-text {
+    h1, .header-text, .pipe {
         font-size: 0.9375em; /* 15px */
     }
 
@@ -497,5 +500,4 @@ dd:last-child {
     h3 {
         font-size: 1.25em; /* 20px */
     }
-
 }
