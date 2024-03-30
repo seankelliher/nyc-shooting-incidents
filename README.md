@@ -5,7 +5,7 @@ Dashboard on YTD shootings in NYC built Vue.js, Express.js, Node.js, and NYC Ope
 
 ## Project Status
 
-RENOVATING: modifying design and functionality (from Options to Composition API). Need to add error handling and conduct testing for WACG, responsiveness, and cross browser functionality.
+Next steps, I want to do more extensive accessibility and browser testing.
 
 ## Project Screen Shots
 
@@ -37,11 +37,7 @@ Visit the localhost port displayed in the terminal after running `npm run dev`. 
 
 ## Reflection
 
-I wanted to build an app that pulls NYPD data on shooting incidents in New York City, compiles it, and offers "overviews" as to when and where shootings occur and who are the perpetrators and victims.
-
-The initial challenge was understanding how the NYPD categorizes shootings. For example, if the shooting is labeled as at a liquor store, was it inside the store or outside it? How are incidents where a single person shoots multiple people, or vice versa, categorized?
-
-Once building, I created the app to pull data from the NYC Open Data server, store it in a browser's local storage, and then utilize local storage for future requests. I wanted to reduce calls to the server.
+My goal was to build an app that fetches and compiles NYPD data on shooting incidents. The NYPD releases data at the end of each quarter for the previous 12 months. Unfortunately, in NYC, this involves a lot of shootings and a lot of data. I tested different approaches: making multiple calls to the server for smaller amounts of data versus one call for all data. The single fetch offered better results. I fetch all data at once. I then loop through the returned data multiple times to compile the statistics. I also store the data locally in "session storage." If the user leaves and returns during the same session, the data can be pulled from the browser's memory and there is no need to fetch it again from the server. Using "local storage" was also an option but with a downside. If the NYPD updated its data before users cleared their cache, users would miss out on updated data.
 
 ## Acknowledgments
 
