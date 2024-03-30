@@ -359,8 +359,8 @@ h1 a {
 }
 
 p a {
-    color: #5000f8;
-    text-decoration: none;
+    color: #00587e;
+    text-decoration: underline;
 }
 
 .header-text a {
