@@ -1,5 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import mapboxgl from "mapbox-gl";
+import "../../node_modules/mapbox-gl/dist/mapbox-gl.css";
 
 const incidents = ref([]);
 
@@ -75,6 +77,9 @@ const otherLocation = ref([]);
 // Error
 const errorMsg = ref("");
 
+let map;
+const mapContainer = ref(null);
+
 // Using locally -> http://localhost:4040/shooting-incidents
 // Using remotely -> /shooting-incidents
 onMounted(() => {
@@ -103,6 +108,7 @@ onMounted(() => {
                 getRace("vic");
                 getRace("perp");
                 getLocation();
+                createMap();
                 sessionStorage.setItem("nycShootings", JSON.stringify(incidents.value));
             })
             .catch((error) => {
@@ -125,6 +131,7 @@ onMounted(() => {
         getRace("vic");
         getRace("perp");
         getLocation();
+        createMap();
     }
 });
 
@@ -374,6 +381,41 @@ function getLocation() {
         }
     });
 }
+
+function createMap() {
+    // Read only, restricted to requests from single URL.
+    mapboxgl.accessToken = "pk.eyJ1Ijoic2s1NjQ2NzMiLCJhIjoiY2x1eWh2cHJnMGdiNjJrcXFuM2txZnE5MiJ9.0T3dUBTc2gYig63D4nmCqw";
+
+    map = new mapboxgl.Map({
+        container: mapContainer.value,
+        style: "mapbox://styles/mapbox/light-v11", // v11 flat map, v12 globe.
+        center: [-73.840, 40.702],
+        zoom: 10.0
+    });
+
+    // A small number of shooting incidents do not have geolocation data.
+    // If statement removes those and prevents errors.
+    incidents.value.map((incident) => {
+        if (Object.hasOwn(incident, "geocoded_column")) {
+            new mapboxgl.Marker({ color: "#009ddc", scale: 0.75 })
+                .setLngLat([`${incident.geocoded_column.coordinates[0]}`, `${incident.geocoded_column.coordinates[1]}`])
+                .setPopup(
+                    new mapboxgl.Popup({ offset: 25 }) // add popups
+                        .setHTML(
+                            `<dl>
+                                <dt>${incident.boro}</dt>
+                                <dd>Precinct: ${incident.precinct}</dd>
+                                <dd>Date: ${incident.occur_date.substring(0, 10)}</dd>
+                                <dd>Time, 24hr: ${incident.occur_time.substring(0, 5)}</dd>
+                                <dd>Fatal: ${incident.statistical_murder_flag === "Y" ?  "Yes" : "No"}</dd>
+                            </dl>`
+                        )
+                )
+                .addTo(map);
+        }
+    });
+}
+
 </script>
 
 <template>
@@ -381,7 +423,6 @@ function getLocation() {
         <div v-if="errorMsg" class="heading-error">
             <p class="error-msg">{{ errorMsg }}</p>
         </div>
-
         <section class="gen-border">
             <dl>
                 <dt>Totals</dt>
@@ -507,6 +548,14 @@ function getLocation() {
                 <dd><span>na</span> <span>{{ raceUnknownPerp.length }}</span></dd>
             </dl>
         </section>
+
+        <div class="heading">
+            <h3>Map</h3>
+        </div>
+
+        <div id="map-area">
+            <div ref="mapContainer" class="map-container"></div>
+        </div>
     </main>
 </template>
 
