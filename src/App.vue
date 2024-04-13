@@ -14,5 +14,38 @@ import FooterPart from "./components/FooterPart.vue";
     </div>
 </template>
 
-<style scoped>
+<style>
+    /* Makes triangle "tip" on Mapbox pop-up black. */
+    /* Will not work in style.css. Will not work here id style scoped. */
+    .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+        border-top-color: #000;
+    }
+
+    .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+        border-bottom-color: #000;
+    }
+
+    .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip {
+        border-bottom-color: #000;
+    }
+
+    .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+        border-bottom-color: #000;
+    }
+
+    .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip {
+        border-top-color: #000;
+    }
+
+    .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+        border-top-color: #000;
+    }
+
+    .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+        border-left-color: #000;
+    }
+
+    .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+        border-right-color: #000;
+    }
 </style>
