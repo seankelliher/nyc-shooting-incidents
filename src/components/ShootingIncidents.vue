@@ -397,7 +397,7 @@ function createMap() {
     // If statement removes those and prevents errors.
     incidents.value.map((incident) => {
         if (Object.hasOwn(incident, "geocoded_column")) {
-            new mapboxgl.Marker({ color: "#009ddc", scale: 0.75, name: "this is name", description: "this is description", value: "this is value", title: "This is title" })
+            new mapboxgl.Marker({ color: "#009ddc", scale: 0.75, properties: { alt: "marker for location on map"} })
                 .setLngLat([`${incident.geocoded_column.coordinates[0]}`, `${incident.geocoded_column.coordinates[1]}`])
                 .setPopup(
                     new mapboxgl.Popup({ offset: 25 }) // add popups
