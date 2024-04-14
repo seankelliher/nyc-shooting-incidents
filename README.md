@@ -1,11 +1,11 @@
 [![MIT License on GitHub](https://img.shields.io/github/license/seankelliher/nyc-shooting-incidents?style=flat-square)](/LICENSE.txt)
 ## NYC Shooting Incidents
 
-Dashboard on YTD shootings in NYC built Vue.js, Express.js, Node.js, and NYC Open Data. [View working component](https://nyc-shooting-incidents.herokuapp.com). **"Eco" dyno, takes a few seconds to wake up.**
+Dashboard on YTD shootings in NYC built Vue.js, Express.js, Node.js, Mapbox, and NYC Open Data. [View working component](https://nyc-shooting-incidents.herokuapp.com). **"Eco" dyno, takes a few seconds to wake up.**
 
 ## Project Status
 
-Project meets general accessibility (WACG) and cross-browser requirements. More testing with a dedicated services (e.g., Sauce Labs) would be helpful if deploying to production.
+TESTING MAP: I recently added a Maxbox map with a dynamically-generated point for each shooting incident. The map works fine, but lacks accessibility attributes such as alt tags for markers. I'm reading Mapbox documentation to see if/how this problem can be solved.
 
 ## Project Screen Shots
 
