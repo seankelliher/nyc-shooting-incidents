@@ -411,7 +411,6 @@ function createMap() {
                             </dl>`
                         )
                 )
-                .setLabel("marker for location on map")
                 .addTo(map);
         }
     });
