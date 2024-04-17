@@ -382,6 +382,71 @@ function getLocation() {
     });
 }
 
+// Formats date in map pop-up from "yyyy-mm-dd" to May 17, 2023.
+function formatDate(dt) {
+    const year = dt.substring(0, 4);
+    const month = dt.substring(5, 7);
+    const day = dt.substring(8, 10);
+    let monthStyled;
+    let dayStyled;
+
+    if (month === "01") {
+        monthStyled = "January";
+    } else if (month === "02") {
+        monthStyled = "February";
+    } else if (month === "03") {
+        monthStyled = "March";
+    } else if (month === "04") {
+        monthStyled = "April";
+    } else if (month === "05") {
+        monthStyled = "May";
+    } else if (month === "06") {
+        monthStyled = "June";
+    } else if (month === "07") {
+        monthStyled = "July";
+    } else if (month === "08") {
+        monthStyled = "August";
+    } else if (month === "09") {
+        monthStyled = "September";
+    } else if (month === "10") {
+        monthStyled = "October";
+    } else if (month === "11") {
+        monthStyled = "November";
+    } else if (month === "12") {
+        monthStyled = "December";
+    }
+
+    if (Number(day) < 10) {
+        dayStyled = day.substring(1, 3);
+    } else {
+        dayStyled = day;
+    }
+    return `${monthStyled} ${dayStyled}, ${year}`;
+}
+
+// Formats time in map pop-up from 24-hour to 12-hour (am/pm) time.
+function formatTime(tm) {
+    const hour = tm.substring(0, 2);
+    let hourStyled;
+    const minute = tm.substring(3, 5);
+    let meridiem;
+
+    if (hour >= 13) {
+        hourStyled = hour  - 12;
+    } else if (hour < 10) {
+        hourStyled = hour.substring(1, 3);
+    } else {
+        hourStyled = hour;
+    }
+
+    if (hour >= 12) {
+        meridiem = "PM";
+    } else {
+        meridiem = "AM";
+    }
+    return `${hourStyled}:${minute} ${meridiem}`;
+}
+
 function createMap() {
     // Read only, restricted to requests from single URL.
     mapboxgl.accessToken = "pk.eyJ1Ijoic2s1NjQ2NzMiLCJhIjoiY2x1eWh2cHJnMGdiNjJrcXFuM2txZnE5MiJ9.0T3dUBTc2gYig63D4nmCqw";
@@ -405,8 +470,8 @@ function createMap() {
                             `<dl>
                                 <dt>${incident.boro}</dt>
                                 <dd>Precinct: ${incident.precinct}</dd>
-                                <dd>Date: ${incident.occur_date.substring(0, 10)}</dd>
-                                <dd>Time, 24hr: ${incident.occur_time.substring(0, 5)}</dd>
+                                <dd>${formatDate(incident.occur_date.substring(0, 10))}</dd>
+                                <dd>${formatTime(incident.occur_time.substring(0, 5))}</dd>
                                 <dd>Fatal: ${incident.statistical_murder_flag === "Y" ?  "Yes" : "No"}</dd>
                             </dl>`
                         )
@@ -415,7 +480,6 @@ function createMap() {
         }
     });
 }
-
 </script>
 
 <template>
