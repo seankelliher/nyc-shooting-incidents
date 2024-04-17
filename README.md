@@ -9,11 +9,14 @@ TESTING MAP: I recently added a Maxbox map with a dynamically-generated point fo
 
 ## Project Screen Shots
 
-* Page on desktop
+* Tables on desktop
 ![screen shot of project](/screenshots/nyc-shooting-incidents-screenshot1.png?s=600)
 
-* Page on tablet
+* Tables on tablet
 ![screen shot of project](/screenshots/nyc-shooting-incidents-screenshot2.png?s=600)
+
+* Map on desktop
+![screen shot of project](/screenshots/nyc-shooting-incidents-screenshot3.png?s=600)
 
 ## Installation and Setup Instructions
 
