@@ -5,7 +5,7 @@ Dashboard on YTD shootings in NYC built Vue.js, Express.js, Node.js, Mapbox, and
 
 ## Project Status
 
-TESTING MAP: I recently added a Maxbox map with a dynamically-generated point for each shooting incident. The map works fine, but lacks accessibility attributes such as alt tags for markers. I'm reading Mapbox documentation to see if/how this problem can be solved.
+Project meets general accessibility (WACG) and cross-browser requirements. More testing with a dedicated services (e.g., Sauce Labs) would be helpful if deploying to production.
 
 ## Project Screen Shots
 
@@ -40,7 +40,7 @@ Visit the localhost port displayed in the terminal after running `npm run dev`. 
 
 ## Reflection
 
-My goal was to build an app that fetches and compiles NYPD data on shooting incidents. The NYPD releases data at the end of each quarter for the previous 12 months. Unfortunately, in NYC, this involves a lot of shootings and a lot of data. I tested different approaches: making multiple calls to the server for smaller amounts of data versus one call for all data. The single fetch offered better results. I fetch all data at once. I then loop through the returned data multiple times to compile the statistics. I also store the data locally in "session storage." If the user leaves and returns during the same session, the data can be pulled from the browser's memory and there is no need to fetch it again from the server. Using "local storage" was also an option but with a downside. If the NYPD updated its data before users cleared their cache, users would miss out on updated data.
+My goal was to build an app that fetches and compiles NYPD data on shooting incidents. The NYPD releases data for the current year at the end of each quarter. Unfortunately, in NYC, this involves a lot of shootings and a lot of data. I tested different approaches: making multiple calls to the server for smaller amounts of data versus one call for all data. The single fetch offered better results. I fetch all data at once. I then loop through the returned data multiple times to compile the statistics. I also store the data locally in "session storage." If the user leaves and returns during the same session, the data can be pulled from the browser's memory and there is no need to fetch it again from the server. Using "local storage" was also an option but with a downside. If the NYPD updated its data before users cleared their cache, users would miss out on updated data.
 
 ## Acknowledgments
 
