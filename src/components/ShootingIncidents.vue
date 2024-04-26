@@ -496,7 +496,7 @@ function createMap() {
         </section>
 
         <div class="intro">
-            <p>Data compiled by NYPD and available at <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8/about_data" target="_blank">NYC Open Data</a>. Data is for the past 12 months, {{ openDate }} - {{ closeDate }}, updated at the end of each quarter. Shooting incidents are considered unique. For example, if a perpetrator shoots three people, it is considered three incidents.</p>
+            <p>Data compiled by NYPD and available at <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8/about_data" target="_blank">NYC Open Data</a>. Data is for the current year and is updated at the end of each quarter. You are now viewing data from {{ openDate }} to {{ closeDate }}. Shooting incidents are considered unique. For example, if a perpetrator shoots three people, it is considered three incidents.</p>
         </div>
 
         <div class="heading">
