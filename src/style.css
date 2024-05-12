@@ -40,19 +40,10 @@ header::before {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 2000px;
-    left: 100%;
+    right: calc((100vw - 100%) / -2);
+    left: calc((100vw - 100%) / -2);
     background: #000;
-}
-
-header::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 2000px;
-    right: 100%;
-    background: #000;
+    z-index: -1;
 }
 
 .items-left {
@@ -124,19 +115,10 @@ figure.logo-header {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 2000px;
-    left: 100%;
+    right: calc((100vw - 100%) / -2);
+    left: calc((100vw - 100%) / -2);
     background: #009ddc;
-}
-
-.ribbon::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 2000px;
-    right: 100%;
-    background: #009ddc;
+    z-index: -1;
 }
 
 main {
@@ -271,19 +253,10 @@ footer::before {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 2000px;
-    left: 100%;
+    right: calc((100vw - 100%) / -2);
+    left: calc((100vw - 100%) / -2);
     background: #000;
-}
-
-footer::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 2000px;
-    right: 100%;
-    background: #000;
+    z-index: -1;
 }
 
 @media (min-width: 300px) and (max-width: 499px) {
