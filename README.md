@@ -1,7 +1,7 @@
 [![MIT License on GitHub](https://img.shields.io/github/license/seankelliher/nyc-shooting-incidents?style=flat-square)](/LICENSE.txt)
 ## NYC Shooting Incidents
 
-Dashboard on YTD shootings in NYC built Vue.js, Express.js, Node.js, Mapbox, and NYC Open Data. [View working component](https://nyc-shooting-incidents.herokuapp.com). **"Eco" dyno, takes a few seconds to wake up.**
+Dynamically generated dashboard and map of year-to-date shooting incidents in New York City. The app utilizes Open Data NYC's API to gather a list of individual shootings compiled by the NYPD. From there, it generates a map with pins for each shooting, and charts of statistics. Built with Vue.js, Express.js, and Mapbox. The Express server is used mainly to hide the API's access token in an environmental variable. Fetched data is stored locally to reduce calls to the server. [View working component](https://nyc-shooting-incidents.herokuapp.com). **"Eco" dyno, takes a few seconds to wake up.**
 
 ## Project Status
 
@@ -9,14 +9,11 @@ Project meets general accessibility (WACG) and cross-browser requirements. More 
 
 ## Project Screen Shots
 
-* Tables on desktop
+* Header and charts
 ![screen shot of project](/screenshots/nyc-shooting-incidents-screenshot1.png?s=600)
 
-* Tables on tablet
+* Map and footer
 ![screen shot of project](/screenshots/nyc-shooting-incidents-screenshot2.png?s=600)
-
-* Map on desktop
-![screen shot of project](/screenshots/nyc-shooting-incidents-screenshot3.png?s=600)
 
 ## Installation and Setup Instructions
 
@@ -37,10 +34,6 @@ To Start the Express server:
 To Visit App:
 
 Visit the localhost port displayed in the terminal after running `npm run dev`. You may need to disable your browser's Cross-Origin Restrictions.
-
-## Reflection
-
-My goal was to build an app that fetches and compiles NYPD data on shooting incidents. The NYPD releases data for the current year at the end of each quarter. Unfortunately, in NYC, this involves a lot of shootings and a lot of data. I tested different approaches: making multiple calls to the server for smaller amounts of data versus one call for all data. The single fetch offered better results. I fetch all data at once. I then loop through the returned data multiple times to compile the statistics. I also store the data locally in "session storage." If the user leaves and returns during the same session, the data can be pulled from the browser's memory and there is no need to fetch it again from the server. Using "local storage" was also an option but with a downside. If the NYPD updated its data before users cleared their cache, users would miss out on updated data.
 
 ## Acknowledgments
 
