@@ -1,6 +1,6 @@
 /* Stylesheet uses Level 3 Media Queries. Level 4 coverage still spotty. */
 body {
-    background: #fcfcff;
+    background: #f6fafe; /* N-98 */
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -25,8 +25,9 @@ img {
 header {
     width: 90%;
     margin: 0;
-    padding: 0 5%;
-    background: #000;
+    padding: 0.25em 5%;
+    background: #236488; /* P-40 */
+    border-bottom: 2px solid #fff; /* N-100 */
     flex: initial;
     display: flex;
     flex-flow: row wrap;
@@ -38,11 +39,8 @@ header {
 header::before {
     content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
-    right: calc((100vw - 100%) / -2);
-    left: calc((100vw - 100%) / -2);
-    background: #000;
+    inset: 0 calc((100vw - 100%) / -2);
+    background: #236488; /* P-40 */
     z-index: -1;
 }
 
@@ -101,7 +99,7 @@ figure.logo-header {
     width: 90%;
     margin: 0 0 1em; /* longhand  0 0 1em 0 */
     padding: 0 5%;
-    background: #009ddc;
+    background: #236488; /* P-40 */
     flex: initial;
     display: flex;
     flex-flow: row wrap;
@@ -113,11 +111,8 @@ figure.logo-header {
 .ribbon::before {
     content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
-    right: calc((100vw - 100%) / -2);
-    left: calc((100vw - 100%) / -2);
-    background: #009ddc;
+    inset: 0 calc((100vw - 100%) / -2);
+    background: #236488; /* P-40 */
     z-index: -1;
 }
 
@@ -132,11 +127,137 @@ main {
     align-items: stretch; /* cross axis */
 }
 
+nav {
+    width: 100%;
+    margin: 1em 0;
+    padding: 0;
+    flex: initial;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start; /* cross axis */
+}
+
+button {
+    background: #e5deff; /* S-90 */
+    border: 2px solid #5f5790;
+    border-radius: 12px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.8;
+    font-weight: 600;
+    color: #1b1149; /* S-10 */
+}
+
+@media (min-width: 300px) and (max-width: 399px) {
+    nav {
+        justify-content: center; /* main axis */
+    }
+
+    button {
+        width: 70%;
+        margin-bottom: 1.8em;
+        font-size: 0.875em; /* 14px */
+    }
+
+    button:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 499px) {
+    nav {
+        justify-content: center; /* main axis */
+    }
+
+    button {
+        width: 65%;
+        margin-bottom: 1.8em;
+        font-size: 0.9375em; /* 15px */
+    }
+
+    button:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 599px) {
+    nav {
+        justify-content: center; /* main axis */
+    }
+
+    button {
+        width: 60%;
+        margin-bottom: 1.8em;
+        font-size: 0.9375em; /* 15px */
+    }
+
+    button:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 699px) {
+    nav {
+        justify-content: space-between; /* main axis */
+    }
+
+    button {
+        width: 30%;
+        margin-bottom: 0;
+        font-size: 0.9375em; /* 15px */
+    }
+}
+
+@media (min-width: 700px) and (max-width: 799px) {
+    nav {
+        justify-content: space-between; /* main axis */
+    }
+
+    button {
+        width: 30%;
+        margin-bottom: 0;
+        font-size: 1em; /* 16px */
+    }
+}
+
+@media (min-width: 800px) and (max-width: 999px) {
+    nav {
+        justify-content: space-between; /* main axis */
+    }
+
+    button {
+        width: 25%;
+        margin-bottom: 0;
+        font-size: 1em; /* 16px */
+    }
+}
+
+@media (min-width: 1000px) {
+    nav {
+        justify-content: space-between; /* main axis */
+    }
+
+    button {
+        width: 20%;
+        margin-bottom: 0;
+        font-size: 1em; /* 16px */
+    }
+}
+
+button:hover {
+    background: #aba3de; /* S-70 */
+    cursor: pointer;
+}
+
+.selected {
+    background: #aba3de; /* S-70 */
+}
+
 .heading {
     width: 95%;
     margin: 1em 0;
     padding: 0 2.5%;
-    background: #dde3ea;
+    background: #eaeef2; /* N-94 */
+    border-radius: 12px;
     flex: initial;
 }
 
@@ -144,69 +265,49 @@ main {
     width: 95%;
     margin: 1em 0;
     padding: 0 2.5%;
-    background: #ffdad6;
+    background: #ffdad6; /* E-90 */
     flex: initial;
 }
 
-section {
+section, .intro {
     margin: 1em 0;
-    padding: 0.5em 2.5%;
+    border-radius: 12px;
     flex: initial;
 }
 
-.intro {
-    margin: 1em 0;
-    padding: 0.5em 2.5%;
-    border: 2px solid #dde3ea;
-    flex: initial;
-}
-
-@media (min-width: 300px) and (max-width: 399px) {
+@media (min-width: 300px) and (max-width: 499px) {
     section, .intro {
-        width: 95%;
-    }
-}
-
-@media (min-width: 400px) and (max-width: 499px) {
-    section, .intro {
-        width: 95%;
+        width: 90%;
+        padding: 0.5em 5%;
     }
 }
 
 @media (min-width: 500px) and (max-width: 799px) {
-    section {
-        width: 40%;
-    }
-
-    .intro {
-        width: 95%;
+    section, .intro {
+        width: 90%;
+        padding: 0.5em 5%;
     }
 }
 
 @media (min-width: 800px) {
     section {
         width: 25%;
+        padding: 0.5em 2.5%;
     }
 
     .intro {
         width: 60%;
+        padding: 0.5em 2.5%;
     }
 }
 
-.gen-border {
-    border: 2px solid #dde3ea;
+/* Border colors */
+.grey-border {
+    border: 2px solid #dfe3e7; /* N-90 */
 }
 
-.loc-border {
-    border: 2px solid #c7e7ff;
-}
-
-.vic-border {
-    border: 2px solid #e5deff;
-}
-
-.perp-border {
-    border: 2px solid #ffdbd0;
+.blue-border {
+    border: 2px solid #c7e7ff; /* P-90 */
 }
 
 /* Styles for Mapbox map (Styles for triangle tip in App.vue) */
@@ -241,7 +342,7 @@ footer {
     width: 90%;
     margin-top: 1em;
     padding: 2em 5%;
-    background: #000;
+    background: #001e2e; /* P-10 */
     flex: initial;
     display: flex;
     flex-flow: row wrap;
@@ -251,11 +352,8 @@ footer {
 footer::before {
     content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
-    right: calc((100vw - 100%) / -2);
-    left: calc((100vw - 100%) / -2);
-    background: #000;
+    inset: 0 calc((100vw - 100%) / -2);
+    background: #001e2e; /* P-10 */
     z-index: -1;
 }
 
@@ -307,28 +405,29 @@ h1  {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 600;
-    color: #fff;
+    color: #fff; /* N-100 */
 }
 
 h2 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 600;
-    color: #fff;
+    color: #fff; /* N-100 */
 }
 
 h3 {
+    width: 200px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.2;
     font-weight: 600;
-    color: #41484d;
+    color: #41484d; /* NV-30 */
 }
 
 p {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.8;
     font-weight: 400;
-    color: #191c1e;
+    color: #171c1f; /* N-10 */
 }
 
 .header-text {
@@ -337,12 +436,12 @@ p {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 500;
-    color: #fff;
+    color: #fff; /* N-100 */
 }
 
 /* Used for <p class="error-msg"> */
 .error-msg {
-    color: #ba1a1a;
+    color: #ba1a1a; /* E-40 */
 }
 
 .pipe {
@@ -351,26 +450,22 @@ p {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 600;
-    color: #fff;
+    color: #fff; /* N-100 */
 }
 
 h1 a {
-    color: #fff;
+    color: #fff; /* N-100 */
     text-decoration: none;
 }
 
 p a {
-    color: #00587e;
+    color: #236488; /* P-40 */
     text-decoration: underline;
 }
 
 .header-text a {
-    color: #fff;
+    color: #fff; /* N-100 */
     text-decoration: none;
-}
-
-p a:hover {
-    text-decoration: underline;
 }
 
 ul {
@@ -394,9 +489,9 @@ ul {
 
 li {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.8;
     font-weight: 500;
-    color: #fff;
+    color: #fff; /* N-100 */
 }
 
 dl {
@@ -407,18 +502,18 @@ dl {
 dt {
     margin-left: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.8;
     font-weight: 600;
-    color: #191c1e;
+    color: #171c1f; /* N-10 */
 }
 
 dd {
     margin-left: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+    line-height: 1.8;
     font-weight: 400;
-    color: #191c1e;
-    border-bottom: 1px solid #dde3ea;
+    color: #171c1f; /* N-10 */
+    border-bottom: 1px solid #c1c7ce; /* NV-80 */
     flex: initial;
     display: flex;
     flex-flow: row wrap;
@@ -433,7 +528,7 @@ dd:last-child {
 /* Media queries for fonts */
 @media (min-width: 300px) and (max-width: 399px) {
     p, li, dt, dd  {
-        font-size: 0.8125em; /* 13px */
+        font-size: 0.9375em; /* 15px */
     }
 
     h1, .header-text, .pipe {
@@ -469,7 +564,7 @@ dd:last-child {
 
 @media (min-width: 500px) and (max-width: 599px) {
     p, li, dt, dd  {
-        font-size: 1.0625em; /* 17px */
+        font-size: 1em; /* 16px */
     }
 
     h1, .header-text, .pipe {
@@ -487,7 +582,7 @@ dd:last-child {
 
 @media (min-width: 600px) {
     p, li, dt, dd  {
-        font-size: 1.1875em; /* 19px */
+        font-size: 1.0625em; /* 17px */
     }
 
     h1, .header-text, .pipe {
