@@ -275,14 +275,7 @@ section, .intro {
     flex: initial;
 }
 
-@media (min-width: 300px) and (max-width: 499px) {
-    section, .intro {
-        width: 90%;
-        padding: 0.5em 5%;
-    }
-}
-
-@media (min-width: 500px) and (max-width: 799px) {
+@media (min-width: 300px) and (max-width: 799px) {
     section, .intro {
         width: 90%;
         padding: 0.5em 5%;
@@ -338,6 +331,7 @@ section, .intro {
     border: 1px solid #dde3ea;
 }
 
+/* Footer elements */
 footer {
     width: 90%;
     margin-top: 1em;
