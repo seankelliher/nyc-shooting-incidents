@@ -1,3 +1,11 @@
+/* @link https://utopia.fyi/type/calculator?c=320,15,1.125,1280,17,1.125,2,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+:root {
+    --fs-1: clamp(0.8333rem, 0.7963rem + 0.1852vw, 0.9444rem);
+    --fs0: clamp(0.9375rem, 0.8958rem + 0.2083vw, 1.0625rem);
+    --fs1: clamp(1.0547rem, 1.0078rem + 0.2344vw, 1.1953rem);
+    --fs2: clamp(1.1865rem, 1.1338rem + 0.2637vw, 1.3447rem);
+}
+
 /* Stylesheet uses Level 3 Media Queries. Level 4 coverage still spotty. */
 body {
     background: #f6fafe; /* N-98 */
@@ -142,6 +150,7 @@ button {
     border: 2px solid #5f5790;
     border-radius: 12px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: var(--fs-1);
     line-height: 1.8;
     font-weight: 600;
     color: #1b1149; /* S-10 */
@@ -155,7 +164,6 @@ button {
     button {
         width: 70%;
         margin-bottom: 1.8em;
-        font-size: 0.875em; /* 14px */
     }
 
     button:last-child {
@@ -171,7 +179,6 @@ button {
     button {
         width: 65%;
         margin-bottom: 1.8em;
-        font-size: 0.9375em; /* 15px */
     }
 
     button:last-child {
@@ -187,7 +194,6 @@ button {
     button {
         width: 60%;
         margin-bottom: 1.8em;
-        font-size: 0.9375em; /* 15px */
     }
 
     button:last-child {
@@ -203,7 +209,6 @@ button {
     button {
         width: 30%;
         margin-bottom: 0;
-        font-size: 0.9375em; /* 15px */
     }
 }
 
@@ -215,7 +220,6 @@ button {
     button {
         width: 30%;
         margin-bottom: 0;
-        font-size: 1em; /* 16px */
     }
 }
 
@@ -227,7 +231,6 @@ button {
     button {
         width: 25%;
         margin-bottom: 0;
-        font-size: 1em; /* 16px */
     }
 }
 
@@ -239,7 +242,6 @@ button {
     button {
         width: 20%;
         margin-bottom: 0;
-        font-size: 1em; /* 16px */
     }
 }
 
@@ -397,6 +399,7 @@ figure.logo-footer {
 /* Font styles and their media queries */
 h1  {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: var(--fs-1);
     line-height: 1.5;
     font-weight: 600;
     color: #fff; /* N-100 */
@@ -404,6 +407,7 @@ h1  {
 
 h2 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: var(--fs2);
     line-height: 1.5;
     font-weight: 600;
     color: #fff; /* N-100 */
@@ -412,6 +416,7 @@ h2 {
 h3 {
     width: 200px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: var(--fs1);
     line-height: 1.2;
     font-weight: 600;
     color: #41484d; /* NV-30 */
@@ -419,6 +424,7 @@ h3 {
 
 p {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: var(--fs0);
     line-height: 1.8;
     font-weight: 400;
     color: #171c1f; /* N-10 */
@@ -428,6 +434,7 @@ p {
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: var(--fs-1);
     line-height: 1.5;
     font-weight: 500;
     color: #fff; /* N-100 */
@@ -442,6 +449,7 @@ p {
     margin: 0 0.5em;
     padding: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: var(--fs-1);
     line-height: 1.5;
     font-weight: 600;
     color: #fff; /* N-100 */
@@ -483,6 +491,7 @@ ul {
 
 li {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: var(--fs0);
     line-height: 1.8;
     font-weight: 500;
     color: #fff; /* N-100 */
@@ -496,6 +505,7 @@ dl {
 dt {
     margin-left: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: var(--fs0);
     line-height: 1.8;
     font-weight: 600;
     color: #171c1f; /* N-10 */
@@ -504,6 +514,7 @@ dt {
 dd {
     margin-left: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: var(--fs0);
     line-height: 1.8;
     font-weight: 400;
     color: #171c1f; /* N-10 */
@@ -517,77 +528,4 @@ dd {
 
 dd:last-child {
     border-bottom: none;
-}
-
-/* Media queries for fonts */
-@media (min-width: 300px) and (max-width: 399px) {
-    p, li, dt, dd  {
-        font-size: 0.9375em; /* 15px */
-    }
-
-    h1, .header-text, .pipe {
-        font-size: 0.75em; /* 12px */
-    }
-
-    h2 {
-        font-size: 1.1875em; /* 19px */
-    }
-
-    h3 {
-        font-size: 1.0625em; /* 17px */
-    }
-}
-
-@media (min-width: 400px) and (max-width: 499px) {
-    p, li, dt, dd  {
-        font-size: 0.9375em; /* 15px */
-    }
-
-    h1, .header-text, .pipe {
-        font-size: 0.8125em; /* 13px */
-    }
-
-    h2 {
-        font-size: 1.25em; /* 20px */
-    }
-
-    h3 {
-        font-size: 1.125em; /* 18 px */
-    }
-}
-
-@media (min-width: 500px) and (max-width: 599px) {
-    p, li, dt, dd  {
-        font-size: 1em; /* 16px */
-    }
-
-    h1, .header-text, .pipe {
-        font-size: 0.875em; /* 14px */
-    }
-
-    h2 {
-        font-size: 1.3125em; /* 21px */
-    }
-
-    h3 {
-        font-size: 1.1875em; /* 19px */
-    }
-}
-
-@media (min-width: 600px) {
-    p, li, dt, dd  {
-        font-size: 1.0625em; /* 17px */
-    }
-
-    h1, .header-text, .pipe {
-        font-size: 0.9375em; /* 15px */
-    }
-
-    h2 {
-        font-size: 1.375em; /* 22px */
-    }
-
-    h3 {
-        font-size: 1.25em; /* 20px */
-    }
 }
