@@ -147,7 +147,7 @@ function getTotals() {
     });
 }
 
-// Sets the open/close dates in the "intro" box.
+// Sets the open/close dates in the "year-t0-date totals" box.
 function getDates() {
     incidents.value.map((incident) => {
         dates.value.push(incident.occur_date);
@@ -509,24 +509,33 @@ function createMap() {
         <div v-if="errorMsg" class="heading-error">
             <p class="error-msg">{{ errorMsg }}</p>
         </div>
-        <section class="grey-border">
+
+        <section class="highlight">
+            <h3>About this data</h3>
+            <p>Data compiled by NYPD and available at <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8/about_data" target="_blank">NYC Open Data</a>. Data is for the current year and is updated at the end of each quarter.</p>
+        </section>
+
+        <section class="highlight">
+            <h3>What is an incident?</h3>
+            <p>Shooting incidents are considered unique. For example, if a perpetrator shoots three people, it is considered three incidents.</p>
+        </section>
+
+        <section class="highlight">
+            <h3>Year-to-date totals</h3>
             <dl>
-                <dt>Totals</dt>
+                <dt>Totals are for the time period {{ openDate }} to {{ closeDate }}</dt>
                 <dd><span>Shootings</span> <span>{{ shootings.toLocaleString() }}</span></dd>
                 <dd><span>Fatalities</span> <span>{{ murders }}</span></dd>
             </dl>
+            <p></p>
         </section>
-
-        <div class="intro grey-border">
-            <p>Data compiled by NYPD and available at <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8/about_data" target="_blank">NYC Open Data</a>. Data is for the current year and is updated at the end of each quarter. You are now viewing data from {{ openDate }} to {{ closeDate }}. Shooting incidents are considered unique. For example, if a perpetrator shoots three people, it is considered three incidents.</p>
-        </div>
 
         <nav>
             <button
                 @click="updateDisplay('loc')"
                 :class="{selected: display ===  'loc'}"
             >
-                Time &amp; Locations
+                Sites &amp; Times
             </button>
             <button
                 @click="updateDisplay('vic')"
@@ -542,10 +551,7 @@ function createMap() {
             </button>
         </nav>
 
-        <section
-            v-if="display === 'loc'"
-            class="blue-border"
-        >
+        <section v-if="display === 'loc'">
             <dl>
                 <dt>Time of Day</dt>
                 <dd><span>12am - 5:59am</span> <span>{{ earlyMorning }}</span></dd>
@@ -555,10 +561,7 @@ function createMap() {
             </dl>
         </section>
 
-        <section
-            v-if="display === 'loc'"
-            class="blue-border"
-        >
+        <section v-if="display === 'loc'">
             <dl>
                 <dt>Borough</dt>
                 <dd><span>Bronx</span> <span>{{ bronx }}</span></dd>
@@ -569,10 +572,7 @@ function createMap() {
             </dl>
         </section>
 
-        <section
-            v-if="display === 'loc'"
-            class="blue-border"
-        >
+        <section v-if="display === 'loc'">
             <dl>
                 <dt>Location Type</dt>
                 <dd><span>Commercial</span> <span>{{ commercial }}</span></dd>
@@ -587,10 +587,7 @@ function createMap() {
             </dl>
         </section>
 
-        <section
-            v-if="display === 'vic'"
-            class="blue-border"
-        >
+        <section v-if="display === 'vic'">
             <dl>
                 <dt>Gender</dt>
                 <dd><span>Male</span> <span>{{ maleVic }}</span></dd>
@@ -599,10 +596,7 @@ function createMap() {
             </dl>
         </section>
 
-        <section
-            v-if="display === 'vic'"
-            class="blue-border"
-        >
+        <section v-if="display === 'vic'">
             <dl>
                 <dt>Age</dt>
                 <dd><span>under 18</span> <span>{{ ageUnder18Vic }}</span></dd>
@@ -614,10 +608,7 @@ function createMap() {
             </dl>
         </section>
 
-        <section
-            v-if="display === 'vic'"
-            class="blue-border"
-        >
+        <section v-if="display === 'vic'">
             <dl>
                 <dt>Race</dt>
                 <dd><span>Asian</span> <span>{{ asianVic }}</span></dd>
@@ -629,10 +620,7 @@ function createMap() {
             </dl>
         </section>
 
-        <section
-            v-if="display === 'perp'"
-            class="blue-border"
-        >
+        <section v-if="display === 'perp'">
             <dl>
                 <dt>Gender</dt>
                 <dd><span>Male</span> <span>{{ malePerp }}</span></dd>
@@ -641,10 +629,7 @@ function createMap() {
             </dl>
         </section>
 
-        <section
-            v-if="display === 'perp'"
-            class="blue-border"
-        >
+        <section v-if="display === 'perp'">
             <dl>
                 <dt>Age</dt>
                 <dd><span>under 18</span> <span>{{ ageUnder18Perp }}</span></dd>
@@ -656,10 +641,7 @@ function createMap() {
             </dl>
         </section>
 
-        <section
-            v-if="display === 'perp'"
-            class="blue-border"
-        >
+        <section v-if="display === 'perp'">
             <dl>
                 <dt>Race</dt>
                 <dd><span>Asian</span> <span>{{ asianPerp }}</span></dd>
@@ -672,7 +654,8 @@ function createMap() {
         </section>
 
         <div class="heading">
-            <h3>Map</h3>
+            <h3>Map of shooting incidents</h3>
+            <p>Year-to-date shooting incidents within the five boroughs. Select a "pin" to view details about each incident.</p>
         </div>
 
         <div id="map-area">
