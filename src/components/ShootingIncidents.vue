@@ -505,22 +505,22 @@ function createMap() {
 </script>
 
 <template>
-    <main>
+    <div class="overviews">
         <div v-if="errorMsg" class="heading-error">
             <p class="error-msg">{{ errorMsg }}</p>
         </div>
 
-        <section class="highlight">
+        <section class="intro-box">
             <h3>About this data</h3>
             <p>Data compiled by NYPD and available at <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8/about_data" target="_blank">NYC Open Data</a>. Data is for the current year and is updated at the end of each quarter.</p>
         </section>
 
-        <section class="highlight">
+        <section class="intro-box">
             <h3>What is an incident?</h3>
             <p>Shooting incidents are considered unique. For example, if a perpetrator shoots three people, it is considered three incidents.</p>
         </section>
 
-        <section class="highlight">
+        <section class="intro-box">
             <h3>Year-to-date totals</h3>
             <dl>
                 <dt>Totals are for the time period {{ openDate }} to {{ closeDate }}</dt>
@@ -529,29 +529,33 @@ function createMap() {
             </dl>
             <p></p>
         </section>
+    </div>
+    <nav>
+        <button
+            @click="updateDisplay('loc')"
+            :class="{selected: display ===  'loc'}"
+        >
+            Sites &amp; Times
+        </button>
+        <button
+            @click="updateDisplay('vic')"
+            :class="{selected: display ===  'vic'}"
+        >
+            Victims
+        </button>
+        <button
+            @click="updateDisplay('perp')"
+            :class="{selected: display ===  'perp'}"
+        >
+            Perps
+        </button>
+    </nav>
 
-        <nav>
-            <button
-                @click="updateDisplay('loc')"
-                :class="{selected: display ===  'loc'}"
-            >
-                Sites &amp; Times
-            </button>
-            <button
-                @click="updateDisplay('vic')"
-                :class="{selected: display ===  'vic'}"
-            >
-                Victims
-            </button>
-            <button
-                @click="updateDisplay('perp')"
-                :class="{selected: display ===  'perp'}"
-            >
-                Perps
-            </button>
-        </nav>
-
-        <section v-if="display === 'loc'">
+    <main>
+        <section
+            v-if="display === 'loc'"
+            class="data-box"
+        >
             <dl>
                 <dt>Time of Day</dt>
                 <dd><span>12am - 5:59am</span> <span>{{ earlyMorning }}</span></dd>
@@ -561,7 +565,10 @@ function createMap() {
             </dl>
         </section>
 
-        <section v-if="display === 'loc'">
+        <section
+            v-if="display === 'loc'"
+            class="data-box"
+        >
             <dl>
                 <dt>Borough</dt>
                 <dd><span>Bronx</span> <span>{{ bronx }}</span></dd>
@@ -572,7 +579,10 @@ function createMap() {
             </dl>
         </section>
 
-        <section v-if="display === 'loc'">
+        <section
+            v-if="display === 'loc'"
+            class="data-box"
+        >
             <dl>
                 <dt>Location Type</dt>
                 <dd><span>Commercial</span> <span>{{ commercial }}</span></dd>
@@ -587,7 +597,10 @@ function createMap() {
             </dl>
         </section>
 
-        <section v-if="display === 'vic'">
+        <section
+            v-if="display === 'vic'"
+            class="data-box"
+        >
             <dl>
                 <dt>Gender</dt>
                 <dd><span>Male</span> <span>{{ maleVic }}</span></dd>
@@ -596,7 +609,10 @@ function createMap() {
             </dl>
         </section>
 
-        <section v-if="display === 'vic'">
+        <section
+            v-if="display === 'vic'"
+            class="data-box"
+        >
             <dl>
                 <dt>Age</dt>
                 <dd><span>under 18</span> <span>{{ ageUnder18Vic }}</span></dd>
@@ -608,7 +624,10 @@ function createMap() {
             </dl>
         </section>
 
-        <section v-if="display === 'vic'">
+        <section
+            v-if="display === 'vic'"
+            class="data-box"
+        >
             <dl>
                 <dt>Race</dt>
                 <dd><span>Asian</span> <span>{{ asianVic }}</span></dd>
@@ -620,7 +639,10 @@ function createMap() {
             </dl>
         </section>
 
-        <section v-if="display === 'perp'">
+        <section
+            v-if="display === 'perp'"
+            class="data-box"
+        >
             <dl>
                 <dt>Gender</dt>
                 <dd><span>Male</span> <span>{{ malePerp }}</span></dd>
@@ -629,7 +651,10 @@ function createMap() {
             </dl>
         </section>
 
-        <section v-if="display === 'perp'">
+        <section
+            v-if="display === 'perp'"
+            class="data-box"
+        >
             <dl>
                 <dt>Age</dt>
                 <dd><span>under 18</span> <span>{{ ageUnder18Perp }}</span></dd>
@@ -641,7 +666,10 @@ function createMap() {
             </dl>
         </section>
 
-        <section v-if="display === 'perp'">
+        <section
+            v-if="display === 'perp'"
+            class="data-box"
+        >
             <dl>
                 <dt>Race</dt>
                 <dd><span>Asian</span> <span>{{ asianPerp }}</span></dd>
@@ -653,15 +681,15 @@ function createMap() {
             </dl>
         </section>
 
-        <div class="heading">
+        <section class="intro-box">
             <h3>Map of shooting incidents</h3>
             <p>Year-to-date shooting incidents within the five boroughs. Select a "pin" to view details about each incident.</p>
-        </div>
-
-        <div id="map-area">
-            <div ref="mapContainer" class="map-container"></div>
-        </div>
+        </section>
     </main>
+
+    <div id="map-area">
+        <div ref="mapContainer" class="map-container"></div>
+    </div>
 </template>
 
 <style scoped>

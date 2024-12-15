@@ -124,7 +124,7 @@ figure.logo-header {
     z-index: -1;
 }
 
-main {
+.overviews {
     width: 90%;
     margin: 0;
     padding: 0 5%;
@@ -149,7 +149,6 @@ nav {
 button {
     width: 8em;
     background: #e5deff; /* S-90 */
-    /* border: 2px solid #5f5790; */
     border: none;
     border-radius: 12px;
     font-family: "Roboto Condensed", sans-serif;
@@ -182,13 +181,15 @@ button:hover {
     background: #aba3de; /* S-70 */
 }
 
-.heading {
-    width: 95%;
-    margin: 1em 0;
-    padding: 0 2.5%;
-    background: #eaeef2; /* N-94 */
-    border-radius: 12px;
+main {
+    width: 90%;
+    margin: 0;
+    padding: 0 5%;
     flex: initial;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between; /* main axis */
+    align-items: stretch; /* cross axis */
 }
 
 .heading-error {
@@ -196,32 +197,46 @@ button:hover {
     margin: 1em 0;
     padding: 0 2.5%;
     background: #ffdad6; /* E-90 */
+    border-radius: 12px;
     flex: initial;
 }
 
-section {
+/* Classes for section elements */
+.intro-box {
+    margin: 1em 0;
+    background: #eaeef2; /* N-94 */
+    border-radius: 12px;
+    flex: initial;
+}
+
+.data-box {
     margin: 1em 0;
     border-radius: 12px;
     flex: initial;
 }
 
 @media (min-width: 300px) and (max-width: 799px) {
-    section {
+    .intro-box {
         width: 90%;
         padding: 0.5em 5%;
+    }
+
+    .data-box {
+        width: 100%;
+        padding: 0.5em 0;
     }
 }
 
 @media (min-width: 800px) {
-    section {
+    .intro-box {
         width: 25%;
         padding: 0.5em 2.5%;
     }
-}
 
-/* Border colors */
-.highlight {
-    background: #eaeef2; /* N-94 */
+    .data-box {
+        width: 30%;
+        padding: 0.5em 0;
+    }
 }
 
 /* Styles for Mapbox map (Styles for triangle tip in App.vue) */
