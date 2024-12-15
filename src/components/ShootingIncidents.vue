@@ -523,7 +523,7 @@ function createMap() {
         <section class="intro-box">
             <h3>Year-to-date totals</h3>
             <dl>
-                <dt>Totals are for the time period {{ openDate }} to {{ closeDate }}</dt>
+                <dt>For {{ openDate }} to {{ closeDate }}</dt>
                 <dd><span>Shootings</span> <span>{{ shootings.toLocaleString() }}</span></dd>
                 <dd><span>Fatalities</span> <span>{{ murders }}</span></dd>
             </dl>
