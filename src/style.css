@@ -232,10 +232,10 @@ main {
 
 /* Styles for Mapbox map (Styles for triangle tip in App.vue) */
 #map-area {
-    width: 100%;
+    width: 90%;
     height: 600px;
     margin: 1em 0;
-    padding: 0;
+    padding: 0 5%;
     flex: initial;
     display: flex;
     flex-flow: column nowrap;
@@ -353,7 +353,7 @@ h3 {
 }
 
 p {
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: var(--fs0);
@@ -364,7 +364,7 @@ p {
 .header-text {
     margin: 0;
     padding: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: var(--fs-1);
@@ -424,7 +424,7 @@ ul {
 }
 
 li {
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: var(--fs0);
@@ -450,7 +450,7 @@ dt {
 
 dd {
     margin-left: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: Roboto, sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: var(--fs0);
