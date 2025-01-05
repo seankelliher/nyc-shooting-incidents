@@ -533,18 +533,21 @@ function createMap() {
     <nav>
         <button
             @click="updateDisplay('loc')"
+            class="nav-btn"
             :class="{selected: display ===  'loc'}"
         >
             Sites &amp; Times
         </button>
         <button
             @click="updateDisplay('vic')"
+            class="nav-btn"
             :class="{selected: display ===  'vic'}"
         >
             Victims
         </button>
         <button
             @click="updateDisplay('perp')"
+            class="nav-btn"
             :class="{selected: display ===  'perp'}"
         >
             Perps
