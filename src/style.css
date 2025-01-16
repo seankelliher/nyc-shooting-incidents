@@ -177,7 +177,7 @@ button.nav-btn:hover {
     cursor: pointer;
 }
 
-.selected {
+button.selected {
     background: #aba3de; /* S-70 */
 }
 
