@@ -682,11 +682,6 @@ function createMap() {
         <div class="badge-container">
             <div class="badge">Map</div>
         </div>
-
-        <div class="box intro-box">
-            <h3>Map of shooting incidents</h3>
-            <p>Year-to-date shooting incidents within the five boroughs. Select a "pin" to view details about each incident.</p>
-        </div>
     </div>
 
     <div id="map-area">
