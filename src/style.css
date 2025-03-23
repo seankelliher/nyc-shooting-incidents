@@ -48,6 +48,7 @@ header::before {
     content: "";
     position: absolute;
     inset: 0 calc((100vw - 100%) / -2);
+    border-bottom: -2px solid #fff; /* N-100 */
     background: #236488; /* P-40 */
     z-index: -1;
 }
@@ -105,7 +106,7 @@ figure.logo-header {
 
 .ribbon {
     width: 90%;
-    margin: 0 0 1em; /* longhand  0 0 1em 0 */
+    margin: 0;
     padding: 0 5%;
     background: #236488; /* P-40 */
     flex: initial;
@@ -124,52 +125,65 @@ figure.logo-header {
     z-index: -1;
 }
 
-.overviews {
+.boxes {
     width: 90%;
     margin: 0;
-    padding: 0 5%;
+    padding: 1.5em 5%;
     flex: initial;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between; /* main axis */
     align-items: stretch; /* cross axis */
+
 }
 
-nav {
+.full-width {
+    position: relative;
+    border-bottom: 1px solid #d6dbde; /* N-87 */
+}
+
+.full-width::before {
+    content: "";
+    position: absolute;
+    inset: -1px calc((100vw - 100%) / -2);
+    border-bottom: 1px solid #d6dbde; /* N-87 */
+    z-index: -1;
+}
+
+nav, .badge-container {
     width: 100%;
-    margin: 1em 0;
+    margin: 0;
     padding: 0;
     flex: initial;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly; /* main axis */
+    justify-content: flex-start; /* main axis */
     align-items: flex-start; /* cross axis */
 }
 
-button.nav-btn {
+/* Badges & buttons look the same. Buttons interactive. Badges not. */
+button.nav-btn, .badge {
     width: 8em;
-    background: #e5deff; /* S-90 */
+    margin: 0;
+    padding: 0;
     border: none;
-    border-radius: 12px;
+    /*border-radius: 12px;*/
     font-family: "Roboto Condensed", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
     font-size: var(--fs-1);
-    line-height: 1.8;
+    line-height: 2.2;
     color: #1b1149; /* S-10 */
 }
 
-@media (min-width: 300px) and (max-width: 399px) {
-    button.nav-btn {
-        margin: 0.5em 0;
-    }
+button.nav-btn {
+    background: #e5deff; /* S-90 */
 }
 
-@media (min-width: 400px) {
-    button.nav-btn {
-        margin: 0;
-    }
+.badge {
+    background: #e5deff; /* S-90 */
+    text-align: center;
 }
 
 button.nav-btn:hover {
@@ -181,53 +195,41 @@ button.selected {
     background: #aba3de; /* S-70 */
 }
 
-main {
+.error-box {
     width: 90%;
     margin: 0;
     padding: 0 5%;
-    flex: initial;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between; /* main axis */
-    align-items: stretch; /* cross axis */
-}
-
-.heading-error {
-    width: 95%;
-    margin: 1em 0;
-    padding: 0 2.5%;
     background: #ffdad6; /* E-90 */
     border-radius: 12px;
     flex: initial;
 }
 
-/* Classes for section elements */
+@media (min-width: 300px) and (max-width: 799px) {
+    .box {
+        width: 90%;
+        margin: 1.5em 0 0 0;
+        padding: 0.5em 5%;
+    }
+}
+
+@media (min-width: 800px) {
+    .box {
+        width: 25%;
+        margin: 1.5em 0 0 0;
+        padding: 0.5em 2.5%;
+    }
+}
+
 .intro-box {
-    margin: 1em 0;
     background: #eaeef2; /* N-94 */
     border-radius: 12px;
     flex: initial;
 }
 
 .data-box {
-    margin: 1em 0;
-    border: 2px solid #d6dbde; /* N-87 */
-    border-radius: 6px;
+    border: 1px solid #d6dbde; /* N-87 */
+    border-radius: 12px;
     flex: initial;
-}
-
-@media (min-width: 300px) and (max-width: 799px) {
-    section {
-        width: 90%;
-        padding: 0.5em 5%;
-    }
-}
-
-@media (min-width: 800px) {
-    section {
-        width: 25%;
-        padding: 0.5em 2.5%;
-    }
 }
 
 /* Styles for Mapbox map (Styles for triangle tip in App.vue) */

@@ -15,7 +15,7 @@ const openDate = ref("");
 const closeDate = ref("");
 
 // Group to display
-const display = ref("loc");
+const display = ref("vic");
 
 // Time of Day
 const earlyMorning = ref(0);
@@ -505,22 +505,22 @@ function createMap() {
 </script>
 
 <template>
-    <div class="overviews">
-        <div v-if="errorMsg" class="heading-error">
+    <div class="boxes full-width">
+        <div v-if="errorMsg" class="error-box">
             <p class="error-msg">{{ errorMsg }}</p>
         </div>
 
-        <section class="intro-box">
+        <div class="box intro-box">
             <h3>About this data</h3>
             <p>Data compiled by NYPD and available at <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8/about_data" target="_blank">NYC Open Data</a>. Data is for the current year and is updated at the end of each quarter.</p>
-        </section>
+        </div>
 
-        <section class="intro-box">
+        <div class="box intro-box">
             <h3>What is an incident?</h3>
             <p>Shooting incidents are considered unique. For example, if a perpetrator shoots three people, it is considered three incidents.</p>
-        </section>
+        </div>
 
-        <section class="intro-box">
+        <div class="box intro-box">
             <h3>Year-to-date totals</h3>
             <dl>
                 <dt>For {{ openDate }} to {{ closeDate }}</dt>
@@ -528,37 +528,17 @@ function createMap() {
                 <dd><span>Fatalities</span> <span>{{ murders }}</span></dd>
             </dl>
             <p></p>
-        </section>
+        </div>
     </div>
-    <nav>
-        <button
-            @click="updateDisplay('loc')"
-            class="nav-btn"
-            :class="{selected: display ===  'loc'}"
-        >
-            Sites &amp; Times
-        </button>
-        <button
-            @click="updateDisplay('vic')"
-            class="nav-btn"
-            :class="{selected: display ===  'vic'}"
-        >
-            Victims
-        </button>
-        <button
-            @click="updateDisplay('perp')"
-            class="nav-btn"
-            :class="{selected: display ===  'perp'}"
-        >
-            Perps
-        </button>
-    </nav>
 
-    <main>
-        <section
-            v-if="display === 'loc'"
-            class="data-box"
-        >
+    <div class="boxes full-width">
+        <div class="badge-container">
+            <div class="badge">
+                Sites &amp; Times
+            </div>
+        </div>
+
+        <div class="box data-box">
             <dl>
                 <dt>Time of Day</dt>
                 <dd><span>12am - 5:59am</span> <span>{{ earlyMorning }}</span></dd>
@@ -566,12 +546,9 @@ function createMap() {
                 <dd><span>12pm - 5:59pm</span> <span>{{ afternoon }}</span></dd>
                 <dd><span>6pm - 11:59pm</span> <span>{{ evening }}</span></dd>
             </dl>
-        </section>
+        </div>
 
-        <section
-            v-if="display === 'loc'"
-            class="data-box"
-        >
+        <div class="box data-box">
             <dl>
                 <dt>Borough</dt>
                 <dd><span>Bronx</span> <span>{{ bronx }}</span></dd>
@@ -580,12 +557,9 @@ function createMap() {
                 <dd><span>Queens</span> <span>{{ queens }}</span></dd>
                 <dd><span>Staten Island</span> <span>{{ staten }}</span></dd>
             </dl>
-        </section>
+        </div>
 
-        <section
-            v-if="display === 'loc'"
-            class="data-box"
-        >
+        <div class="box data-box">
             <dl>
                 <dt>Location Type</dt>
                 <dd><span>Commercial</span> <span>{{ commercial }}</span></dd>
@@ -598,11 +572,30 @@ function createMap() {
                 <dd><span>Vehicle</span> <span>{{ vehicle }}</span></dd>
                 <dd><span>Other Location</span> <span>{{ otherLocation }}</span></dd>
             </dl>
-        </section>
+        </div>
+    </div>
 
-        <section
+    <div class="boxes full-width">
+        <nav>
+            <button
+                @click="updateDisplay('vic')"
+                class="nav-btn"
+                :class="{selected: display ===  'vic'}"
+            >
+                Victims
+            </button>
+            <button
+                @click="updateDisplay('perp')"
+                class="nav-btn"
+                :class="{selected: display ===  'perp'}"
+            >
+                Perps
+            </button>
+        </nav>
+
+        <div
             v-if="display === 'vic'"
-            class="data-box"
+            class="box data-box"
         >
             <dl>
                 <dt>Gender</dt>
@@ -610,11 +603,11 @@ function createMap() {
                 <dd><span>Female</span> <span>{{ femaleVic }}</span></dd>
                 <dd><span>na</span> <span>{{ genderUnknownVic }}</span></dd>
             </dl>
-        </section>
+        </div>
 
-        <section
+        <div
             v-if="display === 'vic'"
-            class="data-box"
+            class="box data-box"
         >
             <dl>
                 <dt>Age</dt>
@@ -625,11 +618,11 @@ function createMap() {
                 <dd><span>65 plus</span> <span> {{ age65UpVic }}</span></dd>
                 <dd><span>na</span> <span>{{ ageUnknownVic }}</span></dd>
             </dl>
-        </section>
+        </div>
 
-        <section
+        <div
             v-if="display === 'vic'"
-            class="data-box"
+            class="box data-box"
         >
             <dl>
                 <dt>Race</dt>
@@ -640,11 +633,11 @@ function createMap() {
                 <dd><span>White Hispanic</span> <span>{{ whiteHispVic }}</span></dd>
                 <dd><span>na</span> <span>{{ raceUnknownVic }}</span></dd>
             </dl>
-        </section>
+        </div>
 
-        <section
+        <div
             v-if="display === 'perp'"
-            class="data-box"
+            class="box data-box"
         >
             <dl>
                 <dt>Gender</dt>
@@ -652,11 +645,11 @@ function createMap() {
                 <dd><span>Female</span> <span>{{ femalePerp }}</span></dd>
                 <dd><span>na</span> <span>{{ genderUnknownPerp }}</span></dd>
             </dl>
-        </section>
+        </div>
 
-        <section
+        <div
             v-if="display === 'perp'"
-            class="data-box"
+            class="box data-box"
         >
             <dl>
                 <dt>Age</dt>
@@ -667,11 +660,11 @@ function createMap() {
                 <dd><span>65 plus</span> <span>{{ age65UpPerp }}</span></dd>
                 <dd><span>na</span> <span>{{ ageUnknownPerp }}</span></dd>
             </dl>
-        </section>
+        </div>
 
-        <section
+        <div
             v-if="display === 'perp'"
-            class="data-box"
+            class="box data-box"
         >
             <dl>
                 <dt>Race</dt>
@@ -682,13 +675,19 @@ function createMap() {
                 <dd><span>White Hispanic</span> <span>{{ whiteHispPerp }}</span></dd>
                 <dd><span>na</span> <span>{{ raceUnknownPerp }}</span></dd>
             </dl>
-        </section>
+        </div>
+    </div>
 
-        <section class="intro-box">
+    <div class="boxes">
+        <div class="badge-container">
+            <div class="badge">Map</div>
+        </div>
+
+        <div class="box intro-box">
             <h3>Map of shooting incidents</h3>
             <p>Year-to-date shooting incidents within the five boroughs. Select a "pin" to view details about each incident.</p>
-        </section>
-    </main>
+        </div>
+    </div>
 
     <div id="map-area">
         <div ref="mapContainer" class="map-container"></div>
