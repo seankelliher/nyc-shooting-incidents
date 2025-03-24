@@ -176,15 +176,16 @@ button.nav-btn, .badge {
     font-style: normal;
     font-size: var(--fs-1);
     line-height: 2.2;
-    color: #1b1149; /* S-10 */
 }
 
 button.nav-btn {
-    background: #e5deff; /* S-90 */
+    background: #eaeef2; /* N-94 */
+    color: #171c1f; /* N-10 */
 }
 
 .badge {
     background: #e5deff; /* S-90 */
+    color: #1b1149; /* S-10 */
     text-align: center;
 }
 
@@ -194,7 +195,8 @@ button.nav-btn:hover {
 }
 
 button.selected {
-    background: #aba3de; /* S-70 */
+    background: #e5deff; /* S-90 */
+    color: #1b1149; /* S-10 */
 }
 
 .error-box {
