@@ -9,10 +9,10 @@ Project meets general accessibility (WACG) and cross-browser requirements. More 
 
 ## Project Screen Shots
 
-* Header and charts
+* Header, Intro, Sites & Times
 ![screen shot of project](/screenshots/nyc-shooting-incidents-screenshot1.png?s=600)
 
-* Map and footer
+* Victims, Map
 ![screen shot of project](/screenshots/nyc-shooting-incidents-screenshot2.png?s=600)
 
 ## Installation and Setup Instructions
