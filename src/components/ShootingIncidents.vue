@@ -505,33 +505,29 @@ function createMap() {
 </script>
 
 <template>
-    <div class="boxes full-width">
+    <div class="boxes-container">
         <div v-if="errorMsg" class="error-box">
-            <p class="error-msg">{{ errorMsg }}</p>
+            <p>{{ errorMsg }}</p>
         </div>
 
         <div class="box intro-box">
-            <h3>About this data</h3>
+            <dl>
+                <dt>For {{ openDate }} to {{ closeDate }}</dt>
+                <dd class="intro-border"><span>Shootings</span> <span>{{ shootings.toLocaleString() }}</span></dd>
+                <dd><span>Fatalities</span> <span>{{ murders }}</span></dd>
+            </dl>
+        </div>
+
+        <div class="box intro-box">
             <p>Data compiled by NYPD and available at <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8/about_data" target="_blank">NYC Open Data</a>. Data is for the current year and is updated at the end of each quarter.</p>
         </div>
 
         <div class="box intro-box">
-            <h3>What is an incident?</h3>
             <p>Shooting incidents are considered unique. For example, if a perpetrator shoots three people, it is considered three incidents.</p>
-        </div>
-
-        <div class="box intro-box">
-            <h3>Year-to-date totals</h3>
-            <dl>
-                <dt>For {{ openDate }} to {{ closeDate }}</dt>
-                <dd><span>Shootings</span> <span>{{ shootings.toLocaleString() }}</span></dd>
-                <dd><span>Fatalities</span> <span>{{ murders }}</span></dd>
-            </dl>
-            <p></p>
         </div>
     </div>
 
-    <div class="boxes full-width">
+    <div class="boxes-container">
         <div class="badge-container">
             <div class="badge">
                 Sites &amp; Times
@@ -575,7 +571,7 @@ function createMap() {
         </div>
     </div>
 
-    <div class="boxes full-width">
+    <div class="boxes-container">
         <nav>
             <button
                 @click="updateDisplay('vic')"
@@ -678,14 +674,14 @@ function createMap() {
         </div>
     </div>
 
-    <div class="boxes">
+    <div class="boxes-container">
         <div class="badge-container">
             <div class="badge">Map</div>
         </div>
-    </div>
 
-    <div id="map-area">
-        <div ref="mapContainer" class="map-container"></div>
+        <div id="map-area">
+            <div ref="mapContainer" class="map-container"></div>
+        </div>
     </div>
 </template>
 
