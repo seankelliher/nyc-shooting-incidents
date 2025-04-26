@@ -5,7 +5,7 @@
     <footer>
         <ul>
             <li>Eric L. Adams, Mayor</li>
-            <li>Edward A. Caban, Commissioner NYPD</li>
+            <li>Jessica Tisch, Commissioner NYPD</li>
             <li>Matthew C. Fraser, Chief Technology Officer</li>
         </ul>
 
