@@ -184,7 +184,7 @@ figure.logo-header {
 
 .data-box {
     color: #171c1f; /* on surface */
-    border-color: 1px solid #c1c7ce; /* outline variant */
+    border: 1px solid #c1c7ce; /* outline variant */
     flex: initial;
 }
 
@@ -389,11 +389,6 @@ li {
     font-size: var(--fs0);
     line-height: 1.8;
     color: #edf1f5; /* inverse on surface */
-}
-
-dl {
-    margin: 0;
-    padding: 0;
 }
 
 dt {

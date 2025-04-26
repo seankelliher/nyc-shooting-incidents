@@ -475,7 +475,7 @@ function createMap() {
 
     map = new mapboxgl.Map({
         container: mapContainer.value,
-        style: "mapbox://styles/mapbox/light-v11", // v11 flat map, v12 globe.
+        style: "mapbox://styles/mapbox/streets-v12",
         center: [-73.840, 40.702],
         zoom: 10.0
     });
