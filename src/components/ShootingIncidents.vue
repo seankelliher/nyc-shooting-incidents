@@ -519,7 +519,7 @@ function createMap() {
         </div>
 
         <div class="box intro-box">
-            <p>Data compiled by NYPD and available at <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8/about_data" target="_blank">NYC Open Data</a>. Data is for the current year and is updated at the end of each quarter.</p>
+            <p>The NYPD tracks shootings in NYC and releases information for the current year at the end of each quarter. More at <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Shooting-Incident-Data-Year-To-Date-/5ucz-vwe8/about_data" target="_blank">NYC Open Data</a>. </p>
         </div>
 
         <div class="box intro-box">
