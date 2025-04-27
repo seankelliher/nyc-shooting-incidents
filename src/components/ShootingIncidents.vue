@@ -506,10 +506,7 @@ function createMap() {
 
 <template>
     <div class="boxes-container">
-        <div v-if="errorMsg" class="error-box">
-            <p>{{ errorMsg }}</p>
-        </div>
-
+        <p v-if="errorMsg" class="error-text">{{ errorMsg }}</p>
         <div class="box intro-box">
             <dl>
                 <dt>For {{ openDate }} to {{ closeDate }}</dt>

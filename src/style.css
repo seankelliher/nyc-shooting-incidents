@@ -151,6 +151,10 @@ figure.logo-header {
     z-index: -1;
 }
 
+.boxes-container:first-of-type {
+    padding: 0 5% 1.5em; /* longhand 0 5% 1.5em 5% */
+}
+
 .boxes-container:last-of-type::before {
     border-bottom: none;
 }
@@ -166,7 +170,7 @@ figure.logo-header {
 @media (min-width: 800px) {
     .box {
         width: 25%;
-        margin: 0;
+        margin: 1.5em 0 0; /* longhand 1.5em 0 0 0 */
         padding: 0.5em 2.5%;
     }
 }
@@ -188,30 +192,17 @@ figure.logo-header {
     flex: initial;
 }
 
-.error-box {
-    width: 90%;
-    padding: 0;
+.error-text {
+    width: 100%;
     color: #ba1a1a; /* error */
-    flex: initial;
-}
-
-@media (min-width: 300px) and (max-width: 799px) {
-    .error-box {
-        margin: 0;
-    }
-}
-
-@media (min-width: 800px) {
-    .error-box {
-        margin: 0 0 1.5em; /* longhand 0 0 1.5em 0 */
-    }
+    margin-bottom: 0;
 }
 
 /* Badges and Buttons */
 nav, .badge-container {
     width: 100%;
     margin: 0;
-    padding: 0 0 1.5em; /* longhand 0 0 1.5em 0 */
+    padding: 0;
     flex: initial;
     display: flex;
     flex-flow: row wrap;
