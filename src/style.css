@@ -199,7 +199,6 @@ figure.logo-header {
     .error-box {
         margin: 0;
     }
-
 }
 
 @media (min-width: 800px) {
@@ -212,7 +211,7 @@ figure.logo-header {
 nav, .badge-container {
     width: 100%;
     margin: 0;
-    padding: 0 0 1.5em 0;
+    padding: 0 0 1.5em; /* longhand 0 0 1.5em 0 */
     flex: initial;
     display: flex;
     flex-flow: row wrap;
@@ -226,7 +225,6 @@ button.nav-btn, .badge {
     margin: 0;
     padding: 0;
     border: none;
-    color: #171c1f; /* on surface */
     font-family: "Roboto Condensed", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;
@@ -236,6 +234,7 @@ button.nav-btn, .badge {
 }
 
 button.nav-btn {
+    color: #171c1f; /* on surface */
     background: #f0f4f8; /* surface container low */
 }
 
@@ -245,11 +244,13 @@ button.nav-btn:hover {
 }
 
 button.selected {
-    background: #dfe3e7; /* surface container highest */
+    color: #723521;  /* on tertiary container */
+    background: #ffdbd0; /* tertiary container */
 }
 
 .badge {
-    background: #dfe3e7; /* surface container highest */
+    color: #723521;  /* on tertiary container */
+    background: #ffdbd0; /* tertiary container */
     text-align: center;
 }
 
