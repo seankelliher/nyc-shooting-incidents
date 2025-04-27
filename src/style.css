@@ -53,47 +53,25 @@ header::before {
 }
 
 .items-left {
+    width: 50%;
     margin: 0;
     padding: 0;
     flex: initial;
     display: flex;
     flex-flow: row wrap;
+    justify-content: flex-start; /* main axis */
+    align-items: center; /* cross axis */
 }
 
 .items-right {
+    width: 50%;
     margin: 0;
     padding: 0;
     flex: initial;
     display: flex;
     flex-flow: row wrap;
-}
-
-@media (min-width: 300px) and (max-width: 539px) {
-    .items-left {
-        width: 100%;
-        justify-content: flex-start; /* main axis */
-        align-items: center; /* cross axis */
-    }
-
-    .items-right {
-        width: 100%;
-        justify-content: flex-start; /* main axis */
-        align-items: center; /* cross axis */
-    }
-}
-
-@media (min-width: 540px) {
-    .items-left {
-        width: 50%;
-        justify-content: flex-start; /* main axis */
-        align-items: center; /* cross axis */
-    }
-
-    .items-right {
-        width: 50%;
-        justify-content: flex-end; /* main axis */
-        align-items: center; /* cross axis */
-    }
+    justify-content: flex-end; /* main axis */
+    align-items: center; /* cross axis */
 }
 
 figure.logo-header {

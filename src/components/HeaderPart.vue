@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="items-right">
-            <h1>YTD Shooting Incidents in NYC</h1>
+            <h1>Shooting Incidents</h1>
         </div>
     </header>
 </template>
