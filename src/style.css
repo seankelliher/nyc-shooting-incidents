@@ -226,7 +226,7 @@ button.selected {
 /* Styles for Mapbox map (Styles for triangle tip in App.vue) */
 #map-area {
     width: 100%;
-    height: 600px;
+    height: 800px;
     margin-top: 1.5em;
     padding: 0;
     flex: initial;
