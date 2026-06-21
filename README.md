@@ -1,7 +1,7 @@
 [![MIT License on GitHub](https://img.shields.io/github/license/seankelliher/nyc-shooting-incidents?style=flat-square)](/LICENSE.txt)
 ## NYC Shooting Incidents
 
-Dynamically generated dashboard and map of year-to-date shooting incidents in New York City. The app utilizes Open Data NYC's API to gather a list of individual shootings compiled by the NYPD. From there, it generates a map with pins for each shooting, and charts of statistics. Built with Vue.js, Express.js, and Mapbox. Data is fetched and stored locally (in browser) to reduce calls to the server. [View working component](https://nyc-shooting-incidents.herokuapp.com). **"Eco" dyno, takes a few seconds to wake up. NOTE: Feb. 2026 - NYC ended the dataset this app uses. Unfortunately, the data fields and map no longer populate.**
+Dynamically generated dashboard and map of year-to-date shooting incidents in New York City. The app utilizes Open Data NYC's API to gather a list of individual shootings compiled by the NYPD. From there, it generates a map with pins for each shooting, and charts of statistics. Built with Vue.js, Express.js, and Mapbox. Data is fetched and stored locally (in browser) to reduce calls to the server. [View working component](https://nyc-shooting-incidents.herokuapp.com). **"Eco" dyno, takes a few seconds to wake up. NOTE: Feb. 2026.**
 
 ## Project Status
 
