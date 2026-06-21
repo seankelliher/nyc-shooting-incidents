@@ -4,9 +4,9 @@
 <template>
     <footer>
         <ul>
-            <li>Eric L. Adams, Mayor</li>
+            <li>Zohran Mamdani, Mayor</li>
             <li>Jessica Tisch, Commissioner NYPD</li>
-            <li>Matthew C. Fraser, Chief Technology Officer</li>
+            <li>Lisa Gelobter, Chief Technology Officer</li>
         </ul>
 
         <figure class="logo-footer">
