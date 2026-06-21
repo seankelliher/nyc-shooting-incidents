@@ -36,11 +36,12 @@ app.use(express.static(__dirname + "/dist/"));
 // ========================
 
 // Access token, using environmental variables.
-const token = process.env.APP_TOKEN; // In Heroku, "Open Data" token kept here.
+// const token = process.env.APP_TOKEN; // In Heroku, "Open Data" token kept here.
+// Convert fetch from SODA2 to SODA3 and re-add token when SODA3 documentation available.
 
-// Example route with error handling.
+// Route with error handling.
 app.get("/shooting-incidents", (req, res) => {
-    fetch(`https://data.cityofnewyork.us/resource/5ucz-vwe8.json?$$app_token=${token}`)
+    fetch("https://data.cityofnewyork.us/resource/5ucz-vwe8.json?$where=occur_date>='2026-01-01'")
         .then(res => {
             if (!res.ok) {
                 throw new Error(res.status);
