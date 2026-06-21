@@ -41,8 +41,9 @@ app.use(express.static(__dirname + "/dist/"));
 
 // Route with error handling.
 app.get("/shooting-incidents", (req, res) => {
-    const params = new URLSearchParams({ "where": "occur_date>='2026-01-01'" });
-    fetch(`https://data.cityofnewyork.us/resource/5ucz-vwe8.json?${params}`);
+        fetch("https://data.cityofnewyork.us/resource/5ucz-vwe8.json?" + new URLSearchParams({
+            $where: "occur_date>='2026-01-01'"
+        }).toString())
         .then(res => {
             if (!res.ok) {
                 throw new Error(res.status);
