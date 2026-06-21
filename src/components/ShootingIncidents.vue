@@ -7,7 +7,6 @@ const incidents = ref([]);
 
 // Totals
 const shootings = ref(0);
-const murders = ref(0);
 
 // Dates
 const dates = ref([]);
@@ -18,10 +17,14 @@ const closeDate = ref("");
 const display = ref("vic");
 
 // Time of Day
-const earlyMorning = ref(0);
-const morning = ref(0);
-const afternoon = ref(0);
-const evening = ref(0);
+const timeOfDay1 = ref(0);
+const timeOfDay2 = ref(0);
+const timeOfDay3 = ref(0);
+const timeOfDay4 = ref(0);
+const timeOfDay5 = ref(0);
+const timeOfDay6 = ref(0);
+const timeOfDay7 = ref(0);
+const timeOfDay8 = ref(0);
 
 // Borough
 const bronx = ref(0);
@@ -29,42 +32,6 @@ const brooklyn = ref(0);
 const manhattan = ref(0);
 const queens = ref(0);
 const staten = ref(0);
-
-// Gender
-const maleVic = ref(0);
-const malePerp = ref(0);
-const femaleVic = ref(0);
-const femalePerp = ref(0);
-const genderUnknownVic = ref(0);
-const genderUnknownPerp = ref(0);
-
-// Age
-const ageUnder18Vic = ref(0);
-const ageUnder18Perp = ref(0);
-const age18To24Vic = ref(0);
-const age18To24Perp = ref(0);
-const age25To44Vic = ref(0);
-const age25To44Perp = ref(0);
-const age45To64Vic = ref(0);
-const age45To64Perp = ref(0);
-const age65UpVic = ref(0);
-const age65UpPerp = ref(0);
-const ageUnknownVic = ref(0);
-const ageUnknownPerp = ref(0);
-
-// Race
-const asianVic = ref(0);
-const asianPerp = ref(0);
-const blackVic = ref(0);
-const blackPerp = ref(0);
-const blackHispVic = ref(0);
-const blackHispPerp = ref(0);
-const whiteVic = ref(0);
-const whitePerp = ref(0);
-const whiteHispVic = ref(0);
-const whiteHispPerp = ref(0);
-const raceUnknownVic = ref(0);
-const raceUnknownPerp = ref(0);
 
 // Location
 const commercial = ref(0);
@@ -104,12 +71,6 @@ onMounted(() => {
                 getDates();
                 getTimeOfDay();
                 getBorough();
-                getGender("vic");
-                getGender("perp");
-                getAge("vic");
-                getAge("perp");
-                getRace("vic");
-                getRace("perp");
                 getLocation();
                 createMap();
                 sessionStorage.setItem("nycShootings", JSON.stringify(incidents.value));
@@ -127,12 +88,6 @@ onMounted(() => {
         getDates();
         getTimeOfDay();
         getBorough();
-        getGender("vic");
-        getGender("perp");
-        getAge("vic");
-        getAge("perp");
-        getRace("vic");
-        getRace("perp");
         getLocation();
         createMap();
     }
@@ -141,9 +96,6 @@ onMounted(() => {
 function getTotals() {
     incidents.value.map((incident) => {
         shootings.value += 1;
-        if (incident.statistical_murder_flag === "Y") {
-            murders.value += 1;
-        }
     });
 }
 
@@ -176,14 +128,22 @@ function getDates() {
 
 function getTimeOfDay() {
     incidents.value.map((incident) => {
-        if (incident.occur_time >= "00:00:00" && incident.occur_time <= "05:59:00") {
-            earlyMorning.value += 1;
-        } else if (incident.occur_time >= "06:00:00" && incident.occur_time <= "11:59:00") {
-            morning.value += 1;
-        } else if (incident.occur_time >= "12:00:00" && incident.occur_time <= "17:59:00") {
-            afternoon.value += 1;
-        } else if (incident.occur_time >= "18:00:00" && incident.occur_time <= "23:59:00") {
-            evening.value += 1;
+        if (incident.occur_time >= "00:00:00" && incident.occur_time <= "02:59:00") {
+            timeOfDay1.value += 1;
+        } else if (incident.occur_time >= "03:00:00" && incident.occur_time <= "05:59:00") {
+            timeOfDay2.value += 1;
+        } else if (incident.occur_time >= "06:00:00" && incident.occur_time <= "08:59:00") {
+            timeOfDay3.value += 1;
+        } else if (incident.occur_time >= "09:00:00" && incident.occur_time <= "11:59:00") {
+            timeOfDay4.value += 1;
+        } else if (incident.occur_time >= "12:00:00" && incident.occur_time <= "14:59:00") {
+            timeOfDay5.value += 1;
+        } else if (incident.occur_time >= "15:00:00" && incident.occur_time <= "17:59:00") {
+            timeOfDay6.value += 1;
+        } else if (incident.occur_time >= "18:00:00" && incident.occur_time <= "20:59:00") {
+            timeOfDay7.value += 1;
+        } else if (incident.occur_time >= "21:00:00" && incident.occur_time <= "23:59:00") {
+            timeOfDay8.value += 1;
         }
     });
 }
@@ -208,144 +168,6 @@ function getBorough() {
         case "STATEN ISLAND":
             staten.value += 1;
             break;
-        }
-    });
-}
-
-function getGender(category) {
-    let expr;
-
-    incidents.value.map((incident) => {
-        if (category === "vic") {
-            expr = incident.vic_sex;
-
-            switch(expr) {
-            case "M":
-                maleVic.value += 1;
-                break;
-            case "F":
-                femaleVic.value += 1;
-                break;
-            default:
-                genderUnknownVic.value += 1;
-            }
-        } else if (category === "perp") {
-            expr = incident.perp_sex;
-
-            switch(expr) {
-            case "M":
-                malePerp.value += 1;
-                break;
-            case "F":
-                femalePerp.value += 1;
-                break;
-            default:
-                genderUnknownPerp.value += 1;
-            }
-        }
-    });        
-}
-
-function getAge(category) {
-    let expr;
-
-    incidents.value.map((incident) => {
-        if (category === "vic") {
-            expr = incident.vic_age_group;
-
-            switch(expr) {
-            case "<18":
-                ageUnder18Vic.value += 1;
-                break;
-            case "18-24":
-                age18To24Vic.value += 1;
-                break;
-            case "25-44":
-                age25To44Vic.value += 1;
-                break;
-            case "45-64":
-                age45To64Vic.value += 1;
-                break;
-            case "65+":
-                age65UpVic.value += 1;
-                break;
-            default:
-                ageUnknownVic.value += 1;
-            }
-        } else if (category === "perp") {
-            expr = incident.perp_age_group;
-
-            switch(expr) {
-            case "<18":
-                ageUnder18Perp.value += 1;
-                break;
-            case "18-24":
-                age18To24Perp.value += 1;
-                break;
-            case "25-44":
-                age25To44Perp.value += 1;
-                break;
-            case "45-64":
-                age45To64Perp.value += 1;
-                break;
-            case "65+":
-                age65UpPerp.value += 1;
-                break;
-            default:
-                ageUnknownPerp.value += 1;
-            }
-        }
-    });        
-}
-
-function getRace(category) {
-    let expr;
-
-    incidents.value.map((incident) => {
-        if (category === "vic") {
-            expr = incident.vic_race;
-
-            switch(expr) {
-            case "ASIAN / PACIFIC ISLANDER":
-                asianVic.value += 1;
-                break;
-            case "BLACK":
-                blackVic.value += 1;
-                break;
-            case "BLACK HISPANIC":
-                blackHispVic.value += 1;
-                break;
-            case "WHITE":
-                whiteVic.value += 1;
-                break;
-            case "WHITE HISPANIC":
-                whiteHispVic.value += 1;
-                break;
-            default:
-                raceUnknownVic.value += 1;
-            }
-        } else if (category === "perp") {
-            expr = incident.perp_race;
-
-            switch(expr) {
-            case "ASIAN / PACIFIC ISLANDER":
-                asianPerp.value += 1;
-                break;
-            case "BLACK":
-                blackPerp.value += 1;
-                break;
-            case "BLACK HISPANIC":
-                blackHispPerp.value += 1;
-                break;
-            case "WHITE":
-                whitePerp.value += 1;
-                break;
-            case "WHITE HISPANIC":
-                whiteHispPerp.value += 1;
-                break;
-            default:
-                raceUnknownPerp.value += 1;
-            }
         }
     });
 }
@@ -465,9 +287,9 @@ function formatTime(tm) {
     return `${hourStyled}:${minute} ${meridiem}`;
 }
 
-function updateDisplay(item) {
+/* function updateDisplay(item) {
     display.value = item;
-}
+} */
 
 function createMap() {
     // Read only, restricted to requests from single URL.
@@ -476,16 +298,16 @@ function createMap() {
     map = new mapboxgl.Map({
         container: mapContainer.value,
         style: "mapbox://styles/mapbox/streets-v12",
-        center: [-73.840, 40.702],
+        center: [-73.840, 40.735],
         zoom: 10.0
     });
 
     // A small number of shooting incidents do not have geolocation data.
     // If statement removes those and prevents errors.
     incidents.value.map((incident) => {
-        if (Object.hasOwn(incident, "geocoded_column")) {
+        if (!isNaN(incident.longitude) && !isNaN(incident.latitude)) {
             new mapboxgl.Marker({ color: "#009ddc", scale: 0.75 })
-                .setLngLat([`${incident.geocoded_column.coordinates[0]}`, `${incident.geocoded_column.coordinates[1]}`])
+                .setLngLat([incident.latitude, incident.longitude])
                 .setPopup(
                     new mapboxgl.Popup({ offset: 25 }) // add popups
                         .setHTML(
@@ -494,7 +316,6 @@ function createMap() {
                                 <dd>Precinct: ${incident.precinct}</dd>
                                 <dd>${formatDate(incident.occur_date.substring(0, 10))}</dd>
                                 <dd>${formatTime(incident.occur_time.substring(0, 5))}</dd>
-                                <dd>Fatal: ${incident.statistical_murder_flag === "Y" ?  "Yes" : "No"}</dd>
                             </dl>`
                         )
                 )
@@ -509,9 +330,9 @@ function createMap() {
         <p v-if="errorMsg" class="error-text">{{ errorMsg }}</p>
         <div class="box intro-box">
             <dl>
-                <dt>For {{ openDate }} to {{ closeDate }}</dt>
+                <dt>Available year-to-date shootings</dt>
+                <dd>{{ openDate }} to {{ closeDate }}</dd>
                 <dd class="intro-border"><span>Shootings</span> <span>{{ shootings.toLocaleString() }}</span></dd>
-                <dd><span>Fatalities</span> <span>{{ murders }}</span></dd>
             </dl>
         </div>
 
@@ -534,10 +355,14 @@ function createMap() {
         <div class="box data-box">
             <dl>
                 <dt>Time of Day</dt>
-                <dd><span>12am - 5:59am</span> <span>{{ earlyMorning }}</span></dd>
-                <dd><span>6am - 11:59am</span> <span>{{ morning }}</span></dd>
-                <dd><span>12pm - 5:59pm</span> <span>{{ afternoon }}</span></dd>
-                <dd><span>6pm - 11:59pm</span> <span>{{ evening }}</span></dd>
+                <dd><span>12 AM - 2:59 AM</span> <span>{{ timeOfDay1 }}</span></dd>
+                <dd><span>3 AM - 5:59 AM</span> <span>{{ timeOfDay2 }}</span></dd>
+                <dd><span>6 AM - 8:59 AM</span> <span>{{ timeOfDay3 }}</span></dd>
+                <dd><span>9 AM - 11:59 AM</span> <span>{{ timeOfDay4}}</span></dd>
+                <dd><span>12 PM - 2:59 PM</span> <span>{{ timeOfDay5 }}</span></dd>
+                <dd><span>3 PM - 5:59 PM</span> <span>{{ timeOfDay6}}</span></dd>
+                <dd><span>6 PM - 8:59 PM</span> <span>{{ timeOfDay7 }}</span></dd>
+                <dd><span>9 PM - 11:59 PM</span> <span>{{ timeOfDay8 }}</span></dd>
             </dl>
         </div>
 
@@ -564,109 +389,6 @@ function createMap() {
                 <dd><span>Transit</span> <span>{{ transit }}</span></dd>
                 <dd><span>Vehicle</span> <span>{{ vehicle }}</span></dd>
                 <dd><span>Other Location</span> <span>{{ otherLocation }}</span></dd>
-            </dl>
-        </div>
-    </div>
-
-    <div class="boxes-container">
-        <nav>
-            <button
-                @click="updateDisplay('vic')"
-                class="nav-btn"
-                :class="{selected: display ===  'vic'}"
-            >
-                Victims
-            </button>
-            <button
-                @click="updateDisplay('perp')"
-                class="nav-btn"
-                :class="{selected: display ===  'perp'}"
-            >
-                Perps
-            </button>
-        </nav>
-
-        <div
-            v-if="display === 'vic'"
-            class="box data-box"
-        >
-            <dl>
-                <dt>Gender</dt>
-                <dd><span>Male</span> <span>{{ maleVic }}</span></dd>
-                <dd><span>Female</span> <span>{{ femaleVic }}</span></dd>
-                <dd><span>na</span> <span>{{ genderUnknownVic }}</span></dd>
-            </dl>
-        </div>
-
-        <div
-            v-if="display === 'vic'"
-            class="box data-box"
-        >
-            <dl>
-                <dt>Age</dt>
-                <dd><span>under 18</span> <span>{{ ageUnder18Vic }}</span></dd>
-                <dd><span>18 - 24</span> <span>{{ age18To24Vic }}</span></dd>
-                <dd><span>25 - 44</span> <span>{{ age25To44Vic }}</span></dd>
-                <dd><span>45 - 64</span> <span>{{ age45To64Vic }}</span></dd>
-                <dd><span>65 plus</span> <span> {{ age65UpVic }}</span></dd>
-                <dd><span>na</span> <span>{{ ageUnknownVic }}</span></dd>
-            </dl>
-        </div>
-
-        <div
-            v-if="display === 'vic'"
-            class="box data-box"
-        >
-            <dl>
-                <dt>Race</dt>
-                <dd><span>Asian</span> <span>{{ asianVic }}</span></dd>
-                <dd><span>Black</span> <span>{{ blackVic }}</span></dd>
-                <dd><span>Black Hispanic</span> <span>{{ blackHispVic }}</span></dd>
-                <dd><span>White</span> <span>{{ whiteVic }}</span></dd>
-                <dd><span>White Hispanic</span> <span>{{ whiteHispVic }}</span></dd>
-                <dd><span>na</span> <span>{{ raceUnknownVic }}</span></dd>
-            </dl>
-        </div>
-
-        <div
-            v-if="display === 'perp'"
-            class="box data-box"
-        >
-            <dl>
-                <dt>Gender</dt>
-                <dd><span>Male</span> <span>{{ malePerp }}</span></dd>
-                <dd><span>Female</span> <span>{{ femalePerp }}</span></dd>
-                <dd><span>na</span> <span>{{ genderUnknownPerp }}</span></dd>
-            </dl>
-        </div>
-
-        <div
-            v-if="display === 'perp'"
-            class="box data-box"
-        >
-            <dl>
-                <dt>Age</dt>
-                <dd><span>under 18</span> <span>{{ ageUnder18Perp }}</span></dd>
-                <dd><span>18 - 24</span> <span>{{ age18To24Perp }}</span></dd>
-                <dd><span>25 - 44</span> <span>{{ age25To44Perp }}</span></dd>
-                <dd><span>45 - 64</span> <span>{{ age45To64Perp }}</span></dd>
-                <dd><span>65 plus</span> <span>{{ age65UpPerp }}</span></dd>
-                <dd><span>na</span> <span>{{ ageUnknownPerp }}</span></dd>
-            </dl>
-        </div>
-
-        <div
-            v-if="display === 'perp'"
-            class="box data-box"
-        >
-            <dl>
-                <dt>Race</dt>
-                <dd><span>Asian</span> <span>{{ asianPerp }}</span></dd>
-                <dd><span>Black</span> <span>{{ blackPerp }}</span></dd>
-                <dd><span>Black Hispanic</span> <span>{{ blackHispPerp }}</span></dd>
-                <dd><span>White</span> <span>{{ whitePerp }}</span></dd>
-                <dd><span>White Hispanic</span> <span>{{ whiteHispPerp }}</span></dd>
-                <dd><span>na</span> <span>{{ raceUnknownPerp }}</span></dd>
             </dl>
         </div>
     </div>
